@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8B8794922E1EF1D900A02BF6 /* TabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 8B8794912E1EF1D900A02BF6 /* TabBar */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		8B8793FE2E1EAE5900A02BF6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,20 +33,74 @@
 		8B8794072E1EAE5900A02BF6 /* SubscriptionsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubscriptionsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		8B8794862E1EED9300A02BF6 /* Exceptions for "App" folder in "SubscriptionsApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SubscriptionsAppTests/SubscriptionsAppTests.swift,
+				SubscriptionsAppUITests/SubscriptionsAppUITests.swift,
+				SubscriptionsAppUITests/SubscriptionsAppUITestsLaunchTests.swift,
+			);
+			target = 8B8793EF2E1EAE5700A02BF6 /* SubscriptionsApp */;
+		};
+		8B8794872E1EED9300A02BF6 /* Exceptions for "App" folder in "SubscriptionsAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SubscriptionsAppTests/SubscriptionsAppTests.swift,
+			);
+			target = 8B8793FC2E1EAE5900A02BF6 /* SubscriptionsAppTests */;
+		};
+		8B8794882E1EED9300A02BF6 /* Exceptions for "App" folder in "SubscriptionsAppUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SubscriptionsAppUITests/SubscriptionsAppUITests.swift,
+				SubscriptionsAppUITests/SubscriptionsAppUITestsLaunchTests.swift,
+			);
+			target = 8B8794062E1EAE5900A02BF6 /* SubscriptionsAppUITests */;
+		};
+		8B87948F2E1EEFCA00A02BF6 /* Exceptions for "Presentation" folder in "SubscriptionsApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SubscriptionsList,
+				Summary,
+				TabBar,
+			);
+			target = 8B8793EF2E1EAE5700A02BF6 /* SubscriptionsApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		8B8793F22E1EAE5700A02BF6 /* SubscriptionsApp */ = {
+		8B87947D2E1EED8D00A02BF6 /* App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SubscriptionsApp;
+			exceptions = (
+				8B8794862E1EED9300A02BF6 /* Exceptions for "App" folder in "SubscriptionsApp" target */,
+				8B8794872E1EED9300A02BF6 /* Exceptions for "App" folder in "SubscriptionsAppTests" target */,
+				8B8794882E1EED9300A02BF6 /* Exceptions for "App" folder in "SubscriptionsAppUITests" target */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
-		8B8794002E1EAE5900A02BF6 /* SubscriptionsAppTests */ = {
+		8B87948A2E1EEDAE00A02BF6 /* Core */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SubscriptionsAppTests;
+			path = Core;
 			sourceTree = "<group>";
 		};
-		8B87940A2E1EAE5900A02BF6 /* SubscriptionsAppUITests */ = {
+		8B87948B2E1EEDB500A02BF6 /* Data */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SubscriptionsAppUITests;
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8B87948C2E1EEDBF00A02BF6 /* Domain */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		8B87948D2E1EEDC600A02BF6 /* Presentation */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8B87948F2E1EEFCA00A02BF6 /* Exceptions for "Presentation" folder in "SubscriptionsApp" target */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B8794922E1EF1D900A02BF6 /* TabBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,9 +134,12 @@
 		8B8793E72E1EAE5700A02BF6 = {
 			isa = PBXGroup;
 			children = (
-				8B8793F22E1EAE5700A02BF6 /* SubscriptionsApp */,
-				8B8794002E1EAE5900A02BF6 /* SubscriptionsAppTests */,
-				8B87940A2E1EAE5900A02BF6 /* SubscriptionsAppUITests */,
+				8B87947D2E1EED8D00A02BF6 /* App */,
+				8B87948A2E1EEDAE00A02BF6 /* Core */,
+				8B87948B2E1EEDB500A02BF6 /* Data */,
+				8B87948C2E1EEDBF00A02BF6 /* Domain */,
+				8B87948D2E1EEDC600A02BF6 /* Presentation */,
+				8B8794902E1EF1D900A02BF6 /* Frameworks */,
 				8B8793F12E1EAE5700A02BF6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +152,13 @@
 				8B8794072E1EAE5900A02BF6 /* SubscriptionsAppUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8B8794902E1EF1D900A02BF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,10 +177,15 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				8B8793F22E1EAE5700A02BF6 /* SubscriptionsApp */,
+				8B87947D2E1EED8D00A02BF6 /* App */,
+				8B87948A2E1EEDAE00A02BF6 /* Core */,
+				8B87948B2E1EEDB500A02BF6 /* Data */,
+				8B87948C2E1EEDBF00A02BF6 /* Domain */,
+				8B87948D2E1EEDC600A02BF6 /* Presentation */,
 			);
 			name = SubscriptionsApp;
 			packageProductDependencies = (
+				8B8794912E1EF1D900A02BF6 /* TabBar */,
 			);
 			productName = SubscriptionsApp;
 			productReference = 8B8793F02E1EAE5700A02BF6 /* SubscriptionsApp.app */;
@@ -129,9 +203,6 @@
 			);
 			dependencies = (
 				8B8793FF2E1EAE5900A02BF6 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				8B8794002E1EAE5900A02BF6 /* SubscriptionsAppTests */,
 			);
 			name = SubscriptionsAppTests;
 			packageProductDependencies = (
@@ -152,9 +223,6 @@
 			);
 			dependencies = (
 				8B8794092E1EAE5900A02BF6 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				8B87940A2E1EAE5900A02BF6 /* SubscriptionsAppUITests */,
 			);
 			name = SubscriptionsAppUITests;
 			packageProductDependencies = (
@@ -405,6 +473,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,7 +482,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = TomaszWojtyniak.SubscriptionsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -433,6 +502,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -441,7 +511,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = TomaszWojtyniak.SubscriptionsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -558,6 +628,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8B8794912E1EF1D900A02BF6 /* TabBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TabBar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8B8793E82E1EAE5700A02BF6 /* Project object */;
 }

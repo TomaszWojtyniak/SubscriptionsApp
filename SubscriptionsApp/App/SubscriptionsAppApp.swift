@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import TabBar
 
 @main
 struct SubscriptionsAppApp: App {
+    
+    @State private var selection: TabBarScreen? = .subscriptions
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabBarView(selection: $selection)
         }
     }
 }
