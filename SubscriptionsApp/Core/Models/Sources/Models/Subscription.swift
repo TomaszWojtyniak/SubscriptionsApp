@@ -7,13 +7,21 @@
 
 import Foundation
 
-public struct Subscription: Identifiable {
+public struct Subscription: Identifiable, Hashable {
     public let id = UUID()
     public let name: String
-    public let details: SubscriptionDetails
+    public let details: any SubscriptionDetails
     
-    public init(name: String, details: SubscriptionDetails) {
+    public init(name: String, details: any SubscriptionDetails) {
         self.name = name
         self.details = details
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    public static func == (lhs: Subscription, rhs: Subscription) -> Bool {
+        return lhs.id == rhs.id
     }
 }

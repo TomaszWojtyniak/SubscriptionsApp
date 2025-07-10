@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum SubscriptionType {
+public enum SubscriptionType: CaseIterable {
     case entertainment
     case productivity
     case fitness

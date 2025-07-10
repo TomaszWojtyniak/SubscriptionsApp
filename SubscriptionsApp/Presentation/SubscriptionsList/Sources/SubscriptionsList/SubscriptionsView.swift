@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Models
 
 struct SubscriptionsView: View {
     
     @State private var dataModel =  SubscriptionsDataModel()
+    @State private var selectedSubscription: Subscription?
     
     var body: some View {
         NavigationStack {
@@ -25,6 +27,9 @@ struct SubscriptionsView: View {
                 Button("Edit") {}
                 Button("Add") {}
             }
+        }
+        .navigationDestination(item: $selectedSubscription) { subscription in
+            
         }
     }
 }
