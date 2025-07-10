@@ -32,7 +32,7 @@ extension TabBarScreen {
     var destination: some View {
         switch self {
         case .subscriptions:
-            SubscriptionsListNavigationStack()
+            SubscriptionsNavigationStack()
         case .summary:
             SummaryNavigationStack()
         }

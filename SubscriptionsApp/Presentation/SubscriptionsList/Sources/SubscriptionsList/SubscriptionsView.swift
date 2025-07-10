@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct SubscriptionsView: View {
+    
+    @State private var dataModel =  SubscriptionsDataModel()
+    
     var body: some View {
-        Text("Subscription view")
+        NavigationStack {
+            List {
+                ForEach(self.dataModel.subscriptions) { subscription in
+                    SubscriptionCellView(subscription: subscription)
+                }
+                .onDelete { index in
+                    
+                }
+            }
+            .toolbar {
+                Button("Edit") {}
+                Button("Add") {}
+            }
+        }
     }
 }
 
