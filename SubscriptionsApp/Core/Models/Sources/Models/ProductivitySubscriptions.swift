@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ProductivitySubscriptions {
+public struct ProductivitySubscriptions: SubscriptionDetails {
     public let type: SubscriptionType = .productivity
     public let displayName: String
     public let price: Double

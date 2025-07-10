@@ -20,13 +20,23 @@ struct SubscriptionsView: View {
                     SubscriptionCellView(subscription: subscription)
                 }
                 .onDelete { index in
-                    
+                    dataModel.removeSubscription(at: index)
                 }
             }
             .toolbar {
-                Button("Edit") {}
-                Button("Add") {}
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Edit") {
+                        
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Add") {
+                        
+                    }
+                }
             }
+            .navigationTitle("Subscriptions")
+            .navigationBarTitleDisplayMode(.automatic)
         }
         .navigationDestination(item: $selectedSubscription) { subscription in
             
