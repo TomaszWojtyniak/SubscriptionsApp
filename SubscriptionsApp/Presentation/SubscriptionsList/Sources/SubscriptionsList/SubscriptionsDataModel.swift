@@ -18,6 +18,9 @@ class SubscriptionsDataModel {
         Subscription(name: "Subscription 4", details: FitnessSubscription(displayName: "Subscription 4", price: 20.0, fitnessType: "Gym", paymentRate: 20.0, gymName: "MyGym")),
     ]
     
+    var selectedSubscription: Subscription?
+    var isShowingAddSubscriptionSheet: Bool = false
+    
     func removeSubscription(at indexSet: IndexSet) {
         subscriptions.remove(atOffsets: indexSet)
     }

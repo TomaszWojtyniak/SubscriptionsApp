@@ -11,7 +11,6 @@ import Models
 struct SubscriptionsView: View {
     
     @State private var dataModel =  SubscriptionsDataModel()
-    @State private var selectedSubscription: Subscription?
     
     var body: some View {
         NavigationStack {
@@ -25,20 +24,21 @@ struct SubscriptionsView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Edit") {
-                        
-                    }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add") {
-                        
+                    Button {
+                        self.dataModel.isShowingAddSubscriptionSheet = true
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                            .foregroundColor(.blue)
                     }
                 }
             }
-            .navigationTitle("Subscriptions")
+            .navigationTitle(Text("subscriptions.navigation.title", bundle: .module))
             .navigationBarTitleDisplayMode(.automatic)
         }
-        .navigationDestination(item: $selectedSubscription) { subscription in
+        .sheet(isPresented: $dataModel.isShowingAddSubscriptionSheet, content: {
+            AddSubscriptionView()
+        })
+        .navigationDestination(item: $dataModel.selectedSubscription) { subscription in
             
         }
     }

@@ -1,0 +1,30 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "$%.2f" : {
+
+    },
+    "Hello, World!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FWEJBFWE"
+          }
+        }
+      }
+    },
+    "subscriptions.navigation.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subscriptions"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
