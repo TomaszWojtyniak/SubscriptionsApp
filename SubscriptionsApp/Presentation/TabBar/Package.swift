@@ -15,7 +15,8 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../../Presentation/SubscriptionsList"),
-        .package(path: "../../Presentation/Summary")
+        .package(path: "../../Presentation/Summary"),
+        .package(path: "../../Core/SharedUtilities")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -24,7 +25,8 @@ let package = Package(
             name: "TabBar",
             dependencies: [
                 "SubscriptionsList",
-                "Summary"
+                "Summary",
+                "SharedUtilities"
             ]),
         .testTarget(
             name: "TabBarTests",
