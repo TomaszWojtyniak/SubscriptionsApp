@@ -8,6 +8,7 @@
 import SwiftUI
 import SubscriptionsList
 import Summary
+import SharedUtilities
 
 public enum TabBarScreen: Codable, Hashable, Identifiable, CaseIterable {
     case subscriptions
@@ -22,9 +23,9 @@ extension TabBarScreen {
     var label: some View {
         switch self {
         case .subscriptions:
-            Label("Subscriptions", systemImage: "list.star")
+            Label("tab.bar.subscriptions".localized(.module), systemImage: "list.star")
         case .summary:
-            Label("Summary", systemImage: "dollarsign.bank.building.fill")
+            Label("tab.bar.summary".localized(.module), systemImage: "dollarsign.bank.building.fill")
         }
     }
     

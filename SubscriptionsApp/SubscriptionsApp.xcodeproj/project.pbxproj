@@ -71,6 +71,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Models,
+				SharedUtilities,
 			);
 			target = 8B8793EF2E1EAE5700A02BF6 /* SubscriptionsApp */;
 		};

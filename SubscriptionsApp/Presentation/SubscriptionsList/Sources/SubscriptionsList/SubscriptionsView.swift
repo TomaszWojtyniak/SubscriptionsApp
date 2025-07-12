@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Models
+import SharedUtilities
 
 struct SubscriptionsView: View {
     
@@ -32,7 +33,7 @@ struct SubscriptionsView: View {
                     }
                 }
             }
-            .navigationTitle(Text("subscriptions.navigation.title", bundle: .module))
+            .navigationTitle("subscriptions.navigation.title".localized(.module))
             .navigationBarTitleDisplayMode(.automatic)
         }
         .sheet(isPresented: $dataModel.isShowingAddSubscriptionSheet, content: {
