@@ -75,6 +75,21 @@
 			);
 			target = 8B8793EF2E1EAE5700A02BF6 /* SubscriptionsApp */;
 		};
+		8B87957B2E22854D00A02BF6 /* Exceptions for "Data" folder in "SubscriptionsApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Repositories/SubscriptionsRepository,
+				Services/ApiClient,
+			);
+			target = 8B8793EF2E1EAE5700A02BF6 /* SubscriptionsApp */;
+		};
+		8B87957E2E228E7F00A02BF6 /* Exceptions for "Domain" folder in "SubscriptionsApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SubscriptionsUseCases,
+			);
+			target = 8B8793EF2E1EAE5700A02BF6 /* SubscriptionsApp */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -98,11 +113,17 @@
 		};
 		8B87948B2E1EEDB500A02BF6 /* Data */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8B87957B2E22854D00A02BF6 /* Exceptions for "Data" folder in "SubscriptionsApp" target */,
+			);
 			path = Data;
 			sourceTree = "<group>";
 		};
 		8B87948C2E1EEDBF00A02BF6 /* Domain */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8B87957E2E228E7F00A02BF6 /* Exceptions for "Domain" folder in "SubscriptionsApp" target */,
+			);
 			path = Domain;
 			sourceTree = "<group>";
 		};

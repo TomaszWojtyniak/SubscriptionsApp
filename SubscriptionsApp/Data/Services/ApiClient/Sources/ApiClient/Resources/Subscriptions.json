@@ -1,0 +1,12 @@
+{
+  "subscriptions": [
+    {
+      "id": 1,
+      "name": "Netflix",
+      "price": 49.99,
+      "currency": "PLN",
+      "renewalDate": "2025-08-15",
+      "category": "Entertainment"
+    }
+  ]
+}

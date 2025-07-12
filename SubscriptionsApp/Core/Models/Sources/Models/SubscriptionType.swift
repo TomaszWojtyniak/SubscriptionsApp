@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum SubscriptionType: CaseIterable {
+public enum SubscriptionType: CaseIterable, Sendable {
     case entertainment
     case productivity
     case fitness

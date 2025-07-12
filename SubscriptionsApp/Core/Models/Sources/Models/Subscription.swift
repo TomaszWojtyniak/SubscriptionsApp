@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Subscription: Identifiable, Hashable {
+public struct Subscription: Identifiable, Hashable, Sendable {
     public let id = UUID()
     public let name: String
     public let details: any SubscriptionDetails

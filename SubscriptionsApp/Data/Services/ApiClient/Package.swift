@@ -4,33 +4,26 @@
 import PackageDescription
 
 let package = Package(
-    name: "SubscriptionsList",
+    name: "ApiClient",
     defaultLocalization: "en",
     platforms: [.iOS(.v18)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "SubscriptionsList",
-            targets: ["SubscriptionsList"]),
-    ],
-    dependencies: [
-        .package(path: "../../Core/Models"),
-        .package(path: "../../Core/SharedUtilities"),
-        .package(path: "../../Domain/SubscriptionsUseCases")
+            name: "ApiClient",
+            targets: ["ApiClient"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "SubscriptionsList",
-            dependencies: [
-                "Models",
-                "SharedUtilities",
-                "SubscriptionsUseCases"
+            name: "ApiClient",
+            resources: [
+                .process("Resources/")
             ]),
         .testTarget(
-            name: "SubscriptionsListTests",
-            dependencies: ["SubscriptionsList"]
+            name: "ApiClientTests",
+            dependencies: ["ApiClient"]
         ),
     ]
 )
