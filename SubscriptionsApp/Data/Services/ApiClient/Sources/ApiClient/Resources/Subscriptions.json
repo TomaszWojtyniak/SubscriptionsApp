@@ -1,12 +1,224 @@
 {
   "subscriptions": [
     {
-      "id": 1,
-      "name": "Netflix",
-      "price": 49.99,
-      "currency": "PLN",
-      "renewalDate": "2025-08-15",
-      "category": "Entertainment"
+      "id": "550e8400-e29b-41d4-a716-446655440001",
+      "name": "Netflix Premium",
+      "monthlyCost": 15.99,
+      "details": {
+        "type": "entertainment",
+        "streamingPlan": "premium",
+        "maxStreams": 4,
+        "has4k": true
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440002",
+      "name": "Microsoft 365 Business",
+      "monthlyCost": 22.00,
+      "details": {
+        "type": "productivity",
+        "userLicenses": 5,
+        "hasCloudStorage": true,
+        "hasAdvancedSecurity": true
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "name": "FitZone Premium",
+      "monthlyCost": 89.99,
+      "details": {
+        "type": "fitness",
+        "fitnessType": "fullAccess",
+        "gymName": "FitZone Premium"
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440004",
+      "name": "Google Drive Pro",
+      "monthlyCost": 9.99,
+      "details": {
+        "type": "cloud",
+        "provider": "Google",
+        "storageCapacity": 2000,
+        "syncDevices": 10,
+        "apiAccess": true
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440005",
+      "name": "Disney+ Premium",
+      "monthlyCost": 13.99,
+      "details": {
+        "type": "entertainment",
+        "streamingPlan": "premium",
+        "maxStreams": 4,
+        "has4k": true
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440006",
+      "name": "Adobe Creative Cloud",
+      "monthlyCost": 52.99,
+      "details": {
+        "type": "productivity",
+        "userLicenses": 1,
+        "hasCloudStorage": true,
+        "hasAdvancedSecurity": false
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440007",
+      "name": "Gold's Gym Basic",
+      "monthlyCost": 29.99,
+      "details": {
+        "type": "fitness",
+        "fitnessType": "basicAccess",
+        "gymName": "Gold's Gym"
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440008",
+      "name": "Dropbox Business",
+      "monthlyCost": 15.00,
+      "details": {
+        "type": "cloud",
+        "provider": "Dropbox",
+        "storageCapacity": 5000,
+        "syncDevices": 3,
+        "apiAccess": true
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440009",
+      "name": "Spotify Premium",
+      "monthlyCost": 9.99,
+      "details": {
+        "type": "entertainment",
+        "streamingPlan": "premium",
+        "maxStreams": 1,
+        "has4k": false
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440010",
+      "name": "Notion Pro",
+      "monthlyCost": 8.00,
+      "details": {
+        "type": "productivity",
+        "userLicenses": 1,
+        "hasCloudStorage": true,
+        "hasAdvancedSecurity": false
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440011",
+      "name": "Planet Fitness Black Card",
+      "monthlyCost": 24.99,
+      "details": {
+        "type": "fitness",
+        "fitnessType": "fullAccess",
+        "gymName": "Planet Fitness"
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440012",
+      "name": "OneDrive Personal",
+      "monthlyCost": 6.99,
+      "details": {
+        "type": "cloud",
+        "provider": "Microsoft",
+        "storageCapacity": 1000,
+        "syncDevices": 5,
+        "apiAccess": false
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440013",
+      "name": "HBO Max",
+      "monthlyCost": 14.99,
+      "details": {
+        "type": "entertainment",
+        "streamingPlan": "premium",
+        "maxStreams": 3,
+        "has4k": true
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440014",
+      "name": "Slack Pro",
+      "monthlyCost": 7.25,
+      "details": {
+        "type": "productivity",
+        "userLicenses": 10,
+        "hasCloudStorage": true,
+        "hasAdvancedSecurity": true
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440015",
+      "name": "Anytime Fitness",
+      "monthlyCost": 38.99,
+      "details": {
+        "type": "fitness",
+        "fitnessType": "fullAccess",
+        "gymName": "Anytime Fitness"
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440016",
+      "name": "iCloud+",
+      "monthlyCost": 9.99,
+      "details": {
+        "type": "cloud",
+        "provider": "Apple",
+        "storageCapacity": 2000,
+        "syncDevices": 5,
+        "apiAccess": false
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440017",
+      "name": "Amazon Prime Video",
+      "monthlyCost": 8.99,
+      "details": {
+        "type": "entertainment",
+        "streamingPlan": "standard",
+        "maxStreams": 3,
+        "has4k": true
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440018",
+      "name": "Trello Power-Up",
+      "monthlyCost": 5.00,
+      "details": {
+        "type": "productivity",
+        "userLicenses": 1,
+        "hasCloudStorage": false,
+        "hasAdvancedSecurity": false
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440019",
+      "name": "LA Fitness",
+      "monthlyCost": 34.99,
+      "details": {
+        "type": "fitness",
+        "fitnessType": "basicAccess",
+        "gymName": "LA Fitness"
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440020",
+      "name": "Box Business",
+      "monthlyCost": 18.00,
+      "details": {
+        "type": "cloud",
+        "provider": "Box",
+        "storageCapacity": 10000,
+        "syncDevices": 10,
+        "apiAccess": true
+      }
     }
   ]
 }

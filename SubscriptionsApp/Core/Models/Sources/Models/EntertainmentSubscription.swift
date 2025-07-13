@@ -9,15 +9,19 @@ import Foundation
 
 public struct EntertainmentSubscription: SubscriptionDetails {
     public let type: SubscriptionType = .entertainment
-    public let displayName: String
-    let renewalDate: Date
-    let platform: String
-    public let price: Double
+    let streamingPlan: StreamingPlan
+    let maxStreams: Int
+    let has4k: Bool
     
-    public init(displayName: String, renewalDate: Date, platform: String, price: Double) {
-        self.displayName = displayName
-        self.renewalDate = renewalDate
-        self.platform = platform
-        self.price = price
+    public init(streamingPlan: StreamingPlan, maxStreams: Int, has4k: Bool) {
+        self.streamingPlan = streamingPlan
+        self.maxStreams = maxStreams
+        self.has4k = has4k
     }
+}
+
+public enum StreamingPlan: String, Codable, Sendable {
+    case basic
+    case standard
+    case premium
 }

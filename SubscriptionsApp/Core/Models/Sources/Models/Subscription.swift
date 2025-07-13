@@ -10,10 +10,12 @@ import Foundation
 public struct Subscription: Identifiable, Hashable, Sendable {
     public let id = UUID()
     public let name: String
+    public let monthlyCost: Double
     public let details: any SubscriptionDetails
     
-    public init(name: String, details: any SubscriptionDetails) {
+    public init(name: String, monthlyCost: Double, details: any SubscriptionDetails) {
         self.name = name
+        self.monthlyCost = monthlyCost
         self.details = details
     }
     

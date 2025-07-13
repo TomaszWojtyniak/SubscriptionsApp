@@ -23,7 +23,7 @@ struct SubscriptionCellView: View {
                 Text(subscription.name)
                     .font(.headline)
                 
-                Text(subscription.details.displayName)
+                Text(subscription.details.type.hashValue.description)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -31,7 +31,7 @@ struct SubscriptionCellView: View {
             Spacer()
             
             VStack(alignment: .trailing, spacing: 4) {
-                Text("$\(subscription.details.price, specifier: "%.2f")")
+                Text("$\(subscription.monthlyCost, specifier: "%.2f")")
                     .font(.headline)
                     .fontWeight(.semibold)
             }
@@ -41,5 +41,5 @@ struct SubscriptionCellView: View {
 }
 
 #Preview {
-    SubscriptionCellView(subscription: Subscription(name: "Subscription 1", details: EntertainmentSubscription(displayName: "Netflix", renewalDate: .now, platform: "Netflix", price: 20.0)))
+    SubscriptionCellView(subscription: Subscription(name: "Netflix", monthlyCost: 39.99, details: EntertainmentSubscription(streamingPlan: .premium, maxStreams: 40, has4k: true)))
 }

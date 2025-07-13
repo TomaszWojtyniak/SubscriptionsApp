@@ -9,11 +9,13 @@ import Foundation
 
 public struct ProductivitySubscriptions: SubscriptionDetails {
     public let type: SubscriptionType = .productivity
-    public let displayName: String
-    public let price: Double
+    let userLicenses: Int
+    let hasCloudStorage: Bool
+    let hasAdvancedSecurity: Bool
     
-    public init(displayName: String, price: Double) {
-        self.displayName = displayName
-        self.price = price
+    public init(userLicenses: Int, hasCloudStorage: Bool, hasAdvancedSecurity: Bool) {
+        self.userLicenses = userLicenses
+        self.hasCloudStorage = hasCloudStorage
+        self.hasAdvancedSecurity = hasAdvancedSecurity
     }
 }
