@@ -7,8 +7,6 @@
 
 import Foundation
 
-public protocol SubscriptionDetails {
-    var displayName: String { get }
-    var price: Double { get }
+public protocol SubscriptionDetails: Sendable, Codable {
     var type: SubscriptionType { get }
 }
