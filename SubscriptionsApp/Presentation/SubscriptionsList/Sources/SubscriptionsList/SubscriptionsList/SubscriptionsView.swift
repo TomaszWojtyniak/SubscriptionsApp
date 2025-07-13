@@ -50,6 +50,7 @@ struct SubscriptionsView: View {
 
         }
         .task {
+            await self.dataModel.addLocaleData()
             await self.dataModel.getSubscriptionsData()
         }
     }

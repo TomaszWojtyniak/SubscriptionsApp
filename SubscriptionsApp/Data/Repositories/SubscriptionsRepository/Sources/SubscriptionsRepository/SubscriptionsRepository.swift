@@ -12,6 +12,7 @@ import OSLog
 
 public protocol SubscriptionsRepositoryProtocol: Sendable {
     func getSubscriptionsData() async throws -> [Subscription]
+    func saveLocalData(data: Data) async throws -> [Subscription]
 }
 
 enum SubscriptionRepositoryError: Error {
@@ -24,7 +25,7 @@ private let logger = Logger(subsystem: "SubscriptionsApp", category: "Subscripti
 public actor SubscriptionsRepository: SubscriptionsRepositoryProtocol {
     public static let shared = SubscriptionsRepository()
     
-    let apiClient: ApiClientProtocol
+    private let apiClient: ApiClientProtocol
     
     private var subscriptions: [Subscription]?
     
@@ -33,19 +34,38 @@ public actor SubscriptionsRepository: SubscriptionsRepositoryProtocol {
     }
     
     public func getSubscriptionsData() async throws -> [Subscription] {
-       if let subscriptions {
-           return subscriptions
-       }
-       
-       let fetchedSubscriptions = try await fetchSubscriptionsData()
-       self.subscriptions = fetchedSubscriptions
-       return fetchedSubscriptions
+        let fetchedSubscriptions = try await fetchSubscriptionsData()
+        self.subscriptions = self.combineSubscriptions(self.subscriptions, fetchedSubscriptions)
+        
+        return self.subscriptions ?? []
     }
     
     private func fetchSubscriptionsData() async throws -> [Subscription] {
-        guard let url = URL(string: "url") else { throw SubscriptionRepositoryError.wrongUrl }
-        let _ = try await self.apiClient.post(url)
+        guard let url = URL(string: "https://api.example.com/subscriptions") else { throw SubscriptionRepositoryError.wrongUrl }
+        let data = try await self.apiClient.get(url)
         
-        return []
+        let decoder = JSONDecoder()
+        let response = try decoder.decode(SubscriptionResponse.self, from: data)
+        
+        
+        return response.subscriptions
+    }
+    
+    public func saveLocalData(data: Data) async throws -> [Subscription] {
+        let decoder = JSONDecoder()
+        let response = try decoder.decode(SubscriptionResponse.self, from: data)
+        self.subscriptions = self.combineSubscriptions(self.subscriptions, response.subscriptions)
+        return self.subscriptions ?? []
+    }
+    
+    private func combineSubscriptions(_ currentSubscriptions: [Subscription]?, _ newSubscriptions: [Subscription]) -> [Subscription] {
+        
+        let combined = (currentSubscriptions ?? []) + newSubscriptions
+        var seenIds = Set<String>()
+        
+        return combined.compactMap { subscription in
+            seenIds.insert(subscription.id.uuidString).inserted ? subscription : nil
+        }
     }
 }
+

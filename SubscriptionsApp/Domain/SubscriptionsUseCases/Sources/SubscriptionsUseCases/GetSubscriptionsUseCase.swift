@@ -10,7 +10,7 @@ import SubscriptionsRepository
 import Models
 
 public protocol GetSubscriptionsUseCaseProtocol: Sendable {
-    func getSubscriptionsData() async throws-> [Subscription]
+    func getSubscriptionsData() async throws -> [Subscription]
 }
 
 public actor GetSubscriptionsUseCase: GetSubscriptionsUseCaseProtocol {

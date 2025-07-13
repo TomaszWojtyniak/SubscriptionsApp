@@ -8,12 +8,13 @@
 import Foundation
 
 public struct ProductivitySubscriptions: SubscriptionDetails {
-    public let type: SubscriptionType = .productivity
-    let userLicenses: Int
-    let hasCloudStorage: Bool
-    let hasAdvancedSecurity: Bool
+    public let type: SubscriptionType
+    public let userLicenses: Int
+    public let hasCloudStorage: Bool
+    public let hasAdvancedSecurity: Bool
     
     public init(userLicenses: Int, hasCloudStorage: Bool, hasAdvancedSecurity: Bool) {
+        self.type = .productivity
         self.userLicenses = userLicenses
         self.hasCloudStorage = hasCloudStorage
         self.hasAdvancedSecurity = hasAdvancedSecurity

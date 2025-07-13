@@ -70,6 +70,7 @@
 		8B8794AB2E2054FD00A02BF6 /* Exceptions for "Core" folder in "SubscriptionsApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				CoreResources,
 				Models,
 				SharedUtilities,
 			);

@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol SubscriptionDetails: Sendable {
+public protocol SubscriptionDetails: Sendable, Codable {
     var type: SubscriptionType { get }
 }

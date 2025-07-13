@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol ApiClientProtocol: Sendable {
-    func post(_ url: URL) async throws -> Data
+    func get(_ url: URL) async throws -> Data
 }
 
 enum ApiClientError: Error {
@@ -22,9 +22,9 @@ public actor ApiClient: ApiClientProtocol {
         
     }
     
-    public func post(_ url: URL) async throws -> Data {
+    public func get(_ url: URL) async throws -> Data {
         try await Task.sleep(for: .seconds(5))
-        guard let url = Bundle.module.url(forResource: "Subscriptions", withExtension: "json") else {
+        guard let url = Bundle.module.url(forResource: "ApiSubscriptions", withExtension: "json") else {
             throw ApiClientError.error
         }
         do {

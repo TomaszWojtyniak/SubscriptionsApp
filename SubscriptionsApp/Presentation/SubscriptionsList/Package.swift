@@ -16,7 +16,8 @@ let package = Package(
     dependencies: [
         .package(path: "../../Core/Models"),
         .package(path: "../../Core/SharedUtilities"),
-        .package(path: "../../Domain/SubscriptionsUseCases")
+        .package(path: "../../Domain/SubscriptionsUseCases"),
+        .package(path: "../../Core/CoreResources")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -26,7 +27,8 @@ let package = Package(
             dependencies: [
                 "Models",
                 "SharedUtilities",
-                "SubscriptionsUseCases"
+                "SubscriptionsUseCases",
+                "CoreResources"
             ]),
         .testTarget(
             name: "SubscriptionsListTests",

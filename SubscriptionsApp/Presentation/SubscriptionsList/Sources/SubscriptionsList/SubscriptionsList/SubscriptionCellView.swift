@@ -23,7 +23,7 @@ struct SubscriptionCellView: View {
                 Text(subscription.name)
                     .font(.headline)
                 
-                Text(subscription.details.type.hashValue.description)
+                Text(self.getSubscriptionDetails())
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -38,8 +38,33 @@ struct SubscriptionCellView: View {
         }
         .padding(.vertical, 4)
     }
+    
+    func getSubscriptionDetails() -> String {
+        switch subscription.details.type {
+        case .entertainment:
+            if let entertainment = subscription.getEntertainmentDetails() {
+                return "Streaming plan: \(entertainment.streamingPlan)"
+            }
+            return ""
+        case .productivity:
+            if let productivity = subscription.getProductivityDetails() {
+                return "\(productivity.hasCloudStorage ? "Cloud storage available" : "Cloud storage unavailable")"
+            }
+            return ""
+        case .fitness:
+            if let fitness = subscription.getFitnessDetails() {
+                return "Fitness type: \(fitness.fitnessType.rawValue)"
+            }
+            return ""
+        case .cloud:
+            if let cloud = subscription.getCloudDetails() {
+                return "Provider: \(cloud.provider)"
+            }
+            return ""
+        }
+    }
 }
 
 #Preview {
-    SubscriptionCellView(subscription: Subscription(name: "Netflix", monthlyCost: 39.99, details: EntertainmentSubscription(streamingPlan: .premium, maxStreams: 40, has4k: true)))
+    SubscriptionCellView(subscription: Subscription(id: UUID(), name: "Netflix", monthlyCost: 39.99, details: .init(EntertainmentSubscription(streamingPlan: .basic, maxStreams: 10, has4k: true))))
 }

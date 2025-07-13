@@ -8,13 +8,14 @@
 import Foundation
 
 public struct CloudStorageSubscription: SubscriptionDetails {
-    public let type: SubscriptionType = .cloud
-    let provider: String
-    let storageCapacity: Int
-    let syncDevices: Int
-    let apiAccess: Bool
+    public let type: SubscriptionType
+    public let provider: String
+    public let storageCapacity: Int
+    public let syncDevices: Int
+    public let apiAccess: Bool
     
     public init(provider: String, storageCapacity: Int, syncDevices: Int, apiAccess: Bool) {
+        self.type = .cloud
         self.provider = provider
         self.storageCapacity = storageCapacity
         self.syncDevices = syncDevices

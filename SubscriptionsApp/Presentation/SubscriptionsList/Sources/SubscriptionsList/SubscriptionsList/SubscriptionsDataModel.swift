@@ -9,6 +9,7 @@ import SwiftUI
 import Models
 import SubscriptionsUseCases
 import OSLog
+import CoreResources
 
 private let logger = Logger(subsystem: "SubscriptionsApp", category: "SubscriptionsDataModel")
 
@@ -44,5 +45,20 @@ class SubscriptionsDataModel {
     
     func addSubscription(_ subscription: Subscription) {
         subscriptions.append(subscription)
+    }
+    
+    func addLocaleData() async {
+        do {
+            guard let jsonData = getJsonData() else {
+                logger.error("Error getting data from a file")
+                //Handle error with popup
+                return
+            }
+            let subscriptions = try await self.setSubscriptionsUseCase.saveLocalData(data: jsonData)
+            self.subscriptions = subscriptions
+        } catch let error {
+            logger.error("Error loading locale data: \(error)")
+            //Handle error with popup
+        }
     }
 }

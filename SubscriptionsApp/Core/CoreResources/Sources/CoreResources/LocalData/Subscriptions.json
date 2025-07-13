@@ -1,0 +1,92 @@
+{
+  "subscriptions": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440001",
+      "name": "Netflix Premium",
+      "monthlyCost": 15.99,
+      "details": {
+        "type": "entertainment",
+        "streamingPlan": "premium",
+        "maxStreams": 4,
+        "has4k": true
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440002",
+      "name": "Microsoft 365 Business",
+      "monthlyCost": 22.00,
+      "details": {
+        "type": "productivity",
+        "userLicenses": 5,
+        "hasCloudStorage": true,
+        "hasAdvancedSecurity": true
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "name": "FitZone Premium",
+      "monthlyCost": 89.99,
+      "details": {
+        "type": "fitness",
+        "fitnessType": "fullAccess",
+        "gymName": "FitZone Premium"
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440004",
+      "name": "Google Drive Pro",
+      "monthlyCost": 9.99,
+      "details": {
+        "type": "cloud",
+        "provider": "Google",
+        "storageCapacity": 2000,
+        "syncDevices": 10,
+        "apiAccess": true
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440005",
+      "name": "Disney+ Premium",
+      "monthlyCost": 13.99,
+      "details": {
+        "type": "entertainment",
+        "streamingPlan": "premium",
+        "maxStreams": 4,
+        "has4k": true
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440006",
+      "name": "Adobe Creative Cloud",
+      "monthlyCost": 52.99,
+      "details": {
+        "type": "productivity",
+        "userLicenses": 1,
+        "hasCloudStorage": true,
+        "hasAdvancedSecurity": false
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440007",
+      "name": "Gold's Gym Basic",
+      "monthlyCost": 29.99,
+      "details": {
+        "type": "fitness",
+        "fitnessType": "basicAccess",
+        "gymName": "Gold's Gym"
+      }
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440008",
+      "name": "Dropbox Business",
+      "monthlyCost": 15.00,
+      "details": {
+        "type": "cloud",
+        "provider": "Dropbox",
+        "storageCapacity": 5000,
+        "syncDevices": 3,
+        "apiAccess": true
+      }
+    }
+  ]
+}

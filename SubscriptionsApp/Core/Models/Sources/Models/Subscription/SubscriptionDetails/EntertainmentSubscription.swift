@@ -8,12 +8,13 @@
 import Foundation
 
 public struct EntertainmentSubscription: SubscriptionDetails {
-    public let type: SubscriptionType = .entertainment
-    let streamingPlan: StreamingPlan
-    let maxStreams: Int
-    let has4k: Bool
+    public let type: SubscriptionType
+    public let streamingPlan: StreamingPlan
+    public let maxStreams: Int
+    public let has4k: Bool
     
     public init(streamingPlan: StreamingPlan, maxStreams: Int, has4k: Bool) {
+        self.type = .entertainment
         self.streamingPlan = streamingPlan
         self.maxStreams = maxStreams
         self.has4k = has4k
