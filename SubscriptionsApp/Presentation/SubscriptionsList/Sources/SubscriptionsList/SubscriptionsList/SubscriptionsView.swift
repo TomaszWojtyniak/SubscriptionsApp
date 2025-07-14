@@ -11,12 +11,12 @@ import SharedUtilities
 
 struct SubscriptionsView: View {
     
-    @State private var dataModel =  SubscriptionsDataModel()
+    @State private var dataModel = SubscriptionsDataModel()
     
     var body: some View {
         NavigationStack {
             if self.dataModel.subscriptions.isEmpty {
-                ContentUnavailableView("No subscriptions data", systemImage: "exclamationmark.shield.fill")
+                ContentUnavailableView("subscription.view.no.data.title", systemImage: "exclamationmark.shield.fill")
             } else {
                 List {
                     ForEach(self.dataModel.subscriptions) { subscription in
@@ -41,14 +41,21 @@ struct SubscriptionsView: View {
                 }
                 .navigationTitle("subscriptions.navigation.title".localized(.module))
                 .navigationBarTitleDisplayMode(.automatic)
+                .sheet(isPresented: $dataModel.isShowingAddSubscriptionSheet, content: {
+                    NavigationStack {
+                        AddSubscriptionView { newSubscription in
+                            self.dataModel.addSubscription(newSubscription)
+                        }
+                    }
+                })
             }
         }
-        .sheet(isPresented: $dataModel.isShowingAddSubscriptionSheet, content: {
-            AddSubscriptionView()
-        })
         .navigationDestination(item: $dataModel.selectedSubscription) { subscription in
 
         }
+        .alert("error.title".localized(.module), isPresented: $dataModel.isShowingErrorAlert, actions: {
+            Button("OK", role: .cancel) { }
+        })
         .task {
             await self.dataModel.addLocaleData()
             await self.dataModel.getSubscriptionsData()

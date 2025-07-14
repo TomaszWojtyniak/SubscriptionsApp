@@ -22,6 +22,7 @@ class SubscriptionsDataModel {
     var subscriptions: [Subscription] = []
     var selectedSubscription: Subscription?
     var isShowingAddSubscriptionSheet: Bool = false
+    var isShowingErrorAlert: Bool = false
     
     init(getSubscriptionsUseCase: GetSubscriptionsUseCaseProtocol = GetSubscriptionsUseCase(),
         setSubscriptionsUseCase: SetSubscriptionsUseCaseProtocol = SetSubscriptionsUseCase()) {
@@ -35,7 +36,7 @@ class SubscriptionsDataModel {
             self.subscriptions = subscriptions
         } catch let error {
             logger.error("Error getting subscriptions data: \(error)")
-            //Handle error with popup
+            isShowingErrorAlert = true
         }
     }
     
@@ -51,14 +52,14 @@ class SubscriptionsDataModel {
         do {
             guard let jsonData = getJsonData() else {
                 logger.error("Error getting data from a file")
-                //Handle error with popup
+                isShowingErrorAlert = true
                 return
             }
             let subscriptions = try await self.setSubscriptionsUseCase.saveLocalData(data: jsonData)
             self.subscriptions = subscriptions
         } catch let error {
             logger.error("Error loading locale data: \(error)")
-            //Handle error with popup
+            isShowingErrorAlert = true
         }
     }
 }

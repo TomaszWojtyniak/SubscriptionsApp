@@ -1,8 +1,135 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "$%.2f" : {
+    "" : {
 
+    },
+    "%lld" : {
+
+    },
+    "€%.2f" : {
+
+    },
+    "add.cloud.subscription.api.access.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Api access"
+          }
+        }
+      }
+    },
+    "add.cloud.subscription.header" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cloud subscription"
+          }
+        }
+      }
+    },
+    "add.cloud.subscription.provider.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Provider"
+          }
+        }
+      }
+    },
+    "add.cloud.subscription.storage.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Storage capacity (GB)"
+          }
+        }
+      }
+    },
+    "add.cloud.sync.devices.picker.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sync devices"
+          }
+        }
+      }
+    },
+    "add.subscription.add.button.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add"
+          }
+        }
+      }
+    },
+    "add.subscription.cancel.button.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "add.subscription.monthly.cost.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monthly cost (EUR)"
+          }
+        }
+      }
+    },
+    "add.subscription.name.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        }
+      }
+    },
+    "add.subscription.navigation.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add subscriptions"
+          }
+        }
+      }
+    },
+    "add.subscription.type.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select type"
+          }
+        }
+      }
+    },
+    "error.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Something went wrong. Please try again"
+          }
+        }
+      }
     },
     "Hello, World!" : {
       "localizations" : {
@@ -14,8 +141,80 @@
         }
       }
     },
-    "No subscriptions data" : {
-
+    "OK" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "subscription.view.no.data.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No subscriptions data"
+          }
+        }
+      }
+    },
+    "subscriptions.cell.cloud.storage.available" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cloud storage available"
+          }
+        }
+      }
+    },
+    "subscriptions.cell.cloud.storage.unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cloud storage unavailable"
+          }
+        }
+      }
+    },
+    "subscriptions.cell.fitness.type" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fitness type: "
+          }
+        }
+      }
+    },
+    "subscriptions.cell.provider" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Provider: "
+          }
+        }
+      }
+    },
+    "subscriptions.cell.streaming.plan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Streaming plan: "
+          }
+        }
+      }
     },
     "subscriptions.navigation.title" : {
       "extractionState" : "manual",

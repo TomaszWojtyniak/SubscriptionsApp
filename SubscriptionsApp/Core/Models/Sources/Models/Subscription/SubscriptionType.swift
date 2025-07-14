@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-public enum SubscriptionType: String, Sendable, Codable {
-    case entertainment
-    case productivity
-    case fitness
-    case cloud
+public enum SubscriptionType: String, Sendable, Codable, CaseIterable, CodingKey {
+    case entertainment = "Entertainment"
+    case productivity = "Productivity"
+    case fitness = "Fitness"
+    case cloud = "Cloud"
     
     public var iconName: String {
         switch self {

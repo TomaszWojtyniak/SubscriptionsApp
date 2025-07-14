@@ -7,10 +7,13 @@
 
 import SwiftUI
 import Models
+import SharedUtilities
 
 struct SubscriptionCellView: View {
     
     let subscription: Subscription
+    
+    @State private var dataModel = SubscriptionCellDataModel()
     
     var body: some View {
         HStack {
@@ -23,7 +26,7 @@ struct SubscriptionCellView: View {
                 Text(subscription.name)
                     .font(.headline)
                 
-                Text(self.getSubscriptionDetails())
+                Text(self.dataModel.getSubscriptionDetails(subscription: subscription))
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -31,37 +34,12 @@ struct SubscriptionCellView: View {
             Spacer()
             
             VStack(alignment: .trailing, spacing: 4) {
-                Text("$\(subscription.monthlyCost, specifier: "%.2f")")
+                Text("€\(subscription.monthlyCost, specifier: "%.2f")")
                     .font(.headline)
                     .fontWeight(.semibold)
             }
         }
         .padding(.vertical, 4)
-    }
-    
-    func getSubscriptionDetails() -> String {
-        switch subscription.details.type {
-        case .entertainment:
-            if let entertainment = subscription.getEntertainmentDetails() {
-                return "Streaming plan: \(entertainment.streamingPlan)"
-            }
-            return ""
-        case .productivity:
-            if let productivity = subscription.getProductivityDetails() {
-                return "\(productivity.hasCloudStorage ? "Cloud storage available" : "Cloud storage unavailable")"
-            }
-            return ""
-        case .fitness:
-            if let fitness = subscription.getFitnessDetails() {
-                return "Fitness type: \(fitness.fitnessType.rawValue)"
-            }
-            return ""
-        case .cloud:
-            if let cloud = subscription.getCloudDetails() {
-                return "Provider: \(cloud.provider)"
-            }
-            return ""
-        }
     }
 }
 

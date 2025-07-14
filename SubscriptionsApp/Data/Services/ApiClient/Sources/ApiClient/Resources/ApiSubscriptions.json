@@ -5,7 +5,7 @@
       "name": "Spotify Premium",
       "monthlyCost": 9.99,
       "details": {
-        "type": "entertainment",
+        "type": "Entertainment",
         "streamingPlan": "premium",
         "maxStreams": 1,
         "has4k": false
@@ -16,7 +16,7 @@
       "name": "Notion Pro",
       "monthlyCost": 8.00,
       "details": {
-        "type": "productivity",
+        "type": "Productivity",
         "userLicenses": 1,
         "hasCloudStorage": true,
         "hasAdvancedSecurity": false
@@ -27,7 +27,7 @@
       "name": "Planet Fitness Black Card",
       "monthlyCost": 24.99,
       "details": {
-        "type": "fitness",
+        "type": "Fitness",
         "fitnessType": "fullAccess",
         "gymName": "Planet Fitness"
       }
@@ -37,7 +37,7 @@
       "name": "OneDrive Personal",
       "monthlyCost": 6.99,
       "details": {
-        "type": "cloud",
+        "type": "Cloud",
         "provider": "Microsoft",
         "storageCapacity": 1000,
         "syncDevices": 5,
@@ -49,7 +49,7 @@
       "name": "HBO Max",
       "monthlyCost": 14.99,
       "details": {
-        "type": "entertainment",
+        "type": "Entertainment",
         "streamingPlan": "premium",
         "maxStreams": 3,
         "has4k": true
@@ -60,7 +60,7 @@
       "name": "Slack Pro",
       "monthlyCost": 7.25,
       "details": {
-        "type": "productivity",
+        "type": "Productivity",
         "userLicenses": 10,
         "hasCloudStorage": true,
         "hasAdvancedSecurity": true
@@ -71,7 +71,7 @@
       "name": "Anytime Fitness",
       "monthlyCost": 38.99,
       "details": {
-        "type": "fitness",
+        "type": "Fitness",
         "fitnessType": "fullAccess",
         "gymName": "Anytime Fitness"
       }
@@ -81,7 +81,7 @@
       "name": "iCloud+",
       "monthlyCost": 9.99,
       "details": {
-        "type": "cloud",
+        "type": "Cloud",
         "provider": "Apple",
         "storageCapacity": 2000,
         "syncDevices": 5,
@@ -93,7 +93,7 @@
       "name": "Amazon Prime Video",
       "monthlyCost": 8.99,
       "details": {
-        "type": "entertainment",
+        "type": "Entertainment",
         "streamingPlan": "standard",
         "maxStreams": 3,
         "has4k": true
@@ -104,7 +104,7 @@
       "name": "Trello Power-Up",
       "monthlyCost": 5.00,
       "details": {
-        "type": "productivity",
+        "type": "Productivity",
         "userLicenses": 1,
         "hasCloudStorage": false,
         "hasAdvancedSecurity": false
@@ -115,7 +115,7 @@
       "name": "LA Fitness",
       "monthlyCost": 34.99,
       "details": {
-        "type": "fitness",
+        "type": "Fitness",
         "fitnessType": "basicAccess",
         "gymName": "LA Fitness"
       }
@@ -125,7 +125,7 @@
       "name": "Box Business",
       "monthlyCost": 18.00,
       "details": {
-        "type": "cloud",
+        "type": "Cloud",
         "provider": "Box",
         "storageCapacity": 10000,
         "syncDevices": 10,
