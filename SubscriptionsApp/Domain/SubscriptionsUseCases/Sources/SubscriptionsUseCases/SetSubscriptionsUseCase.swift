@@ -11,6 +11,8 @@ import Models
 
 public protocol SetSubscriptionsUseCaseProtocol: Sendable {
     func saveLocalData(data: Data) async throws -> [Subscription]
+    func deleteSubscription(id: UUID) async throws -> [Subscription]
+    func addSubscription(subscription: Subscription) async throws -> [Subscription]
 }
 
 public actor SetSubscriptionsUseCase: SetSubscriptionsUseCaseProtocol {
@@ -22,5 +24,13 @@ public actor SetSubscriptionsUseCase: SetSubscriptionsUseCaseProtocol {
     
     public func saveLocalData(data: Data) async throws -> [Subscription] {
         try await self.subscriptionsRepository.saveLocalData(data: data)
+    }
+    
+    public func addSubscription(subscription: Subscription) async throws -> [Subscription] {
+        try await self.subscriptionsRepository.addSubscriptionElement(subscription)
+    }
+    
+    public func deleteSubscription(id: UUID) async throws -> [Subscription] {
+        try await self.subscriptionsRepository.deleteSubscriptionElement(withId: id)
     }
 }

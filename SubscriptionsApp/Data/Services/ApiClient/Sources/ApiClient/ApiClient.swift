@@ -9,6 +9,7 @@ import Foundation
 
 public protocol ApiClientProtocol: Sendable {
     func get(_ url: URL) async throws -> Data
+    func post(_ url: URL, body: Data) async throws -> Data
 }
 
 enum ApiClientError: Error {
@@ -32,5 +33,11 @@ public actor ApiClient: ApiClientProtocol {
         } catch {
             throw ApiClientError.error
         }
+    }
+    
+    public func post(_ url: URL, body: Data) async throws -> Data {
+        try await Task.sleep(for: .seconds(5))
+        
+        return Data()
     }
 }

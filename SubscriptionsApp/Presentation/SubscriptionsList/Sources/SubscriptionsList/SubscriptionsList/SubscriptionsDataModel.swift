@@ -32,8 +32,7 @@ class SubscriptionsDataModel {
     
     func getSubscriptionsData() async {
         do {
-            let subscriptions = try await self.getSubscriptionsUseCase.getSubscriptionsData()
-            self.subscriptions = subscriptions
+            self.subscriptions = try await self.getSubscriptionsUseCase.getSubscriptionsData()
         } catch let error {
             logger.error("Error getting subscriptions data: \(error)")
             isShowingErrorAlert = true
@@ -41,11 +40,28 @@ class SubscriptionsDataModel {
     }
     
     func removeSubscription(at indexSet: IndexSet) {
-        subscriptions.remove(atOffsets: indexSet)
+        Task {
+            if let index = indexSet.first {
+                let subscriptionId = self.subscriptions[index].id
+                do {
+                    self.subscriptions = try await self.setSubscriptionsUseCase.deleteSubscription(id: subscriptionId)
+                } catch let error {
+                    logger.error("Error deleting subscription element: \(error)")
+                    isShowingErrorAlert = true
+                }
+            }
+        }
     }
     
     func addSubscription(_ subscription: Subscription) {
-        subscriptions.append(subscription)
+        Task {
+            do {
+                self.subscriptions = try await self.setSubscriptionsUseCase.addSubscription(subscription: subscription)
+            } catch let error {
+                logger.error("Error adding subscription element: \(error)")
+                isShowingErrorAlert = true
+            }
+        }
     }
     
     func addLocaleData() async {
@@ -55,8 +71,7 @@ class SubscriptionsDataModel {
                 isShowingErrorAlert = true
                 return
             }
-            let subscriptions = try await self.setSubscriptionsUseCase.saveLocalData(data: jsonData)
-            self.subscriptions = subscriptions
+            self.subscriptions = try await self.setSubscriptionsUseCase.saveLocalData(data: jsonData)
         } catch let error {
             logger.error("Error loading locale data: \(error)")
             isShowingErrorAlert = true
