@@ -69,7 +69,7 @@ public extension Subscription {
         return getSubscriptionDetails()
     }
     
-    func getProductivityDetails() -> ProductivitySubscriptions? {
+    func getProductivityDetails() -> ProductivitySubscription? {
         return getSubscriptionDetails()
     }
     

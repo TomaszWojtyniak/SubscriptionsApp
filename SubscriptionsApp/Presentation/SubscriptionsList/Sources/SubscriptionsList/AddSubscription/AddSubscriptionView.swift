@@ -18,7 +18,7 @@ struct AddSubscriptionView: View {
     
     var body: some View {
         Form {
-            Section {
+            Section(header: Text("add.subscription.header".localized(.module))) {
                 LabeledContent {
                     TextField("", text: $dataModel.name, prompt: Text(""))
                         .multilineTextAlignment(.trailing)
@@ -52,7 +52,7 @@ struct AddSubscriptionView: View {
             case .productivity:
                 AddProductivitySubscriptionView()
             case .fitness:
-                AddFitnessSubscriptionView()
+                AddFitnessSubscriptionView(fitnessSubscription: $dataModel.fitnessSubscription)
             }
         }
         .navigationTitle("add.subscription.navigation.title".localized(.module))

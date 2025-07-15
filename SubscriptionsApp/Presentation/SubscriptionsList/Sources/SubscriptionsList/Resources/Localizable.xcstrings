@@ -80,6 +80,16 @@
         }
       }
     },
+    "add.subscription.header" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subscription"
+          }
+        }
+      }
+    },
     "add.subscription.monthly.cost.title" : {
       "localizations" : {
         "en" : {
@@ -127,6 +137,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Something went wrong. Please try again"
+          }
+        }
+      }
+    },
+    "fitness.subscription.gym.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gym name"
+          }
+        }
+      }
+    },
+    "fitness.subscription.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fitness subscription"
           }
         }
       }

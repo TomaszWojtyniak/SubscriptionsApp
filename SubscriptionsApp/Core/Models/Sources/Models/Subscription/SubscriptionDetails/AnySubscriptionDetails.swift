@@ -30,7 +30,7 @@ public struct AnySubscriptionDetails: Codable, Sendable {
         case .entertainment:
             self._details = try EntertainmentSubscription(from: decoder)
         case .productivity:
-            self._details = try ProductivitySubscriptions(from: decoder)
+            self._details = try ProductivitySubscription(from: decoder)
         case .fitness:
             self._details = try FitnessSubscription(from: decoder)
         case .cloud:
@@ -42,7 +42,7 @@ public struct AnySubscriptionDetails: Codable, Sendable {
         switch _details {
         case let entertainment as EntertainmentSubscription:
             try entertainment.encode(to: encoder)
-        case let productivity as ProductivitySubscriptions:
+        case let productivity as ProductivitySubscription:
             try productivity.encode(to: encoder)
         case let fitness as FitnessSubscription:
             try fitness.encode(to: encoder)

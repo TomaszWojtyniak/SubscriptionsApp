@@ -19,6 +19,9 @@ class AddSubscriptionDataModel {
     var monthlyCost: String = ""
     var type: SubscriptionType = .cloud
     var cloudSubscription: CloudStorageSubscription?
+    var fitnessSubscription: FitnessSubscription?
+    var entertainmentSubscription: EntertainmentSubscription?
+    var productivitySubscription: ProductivitySubscription?
     
     init() {
         
