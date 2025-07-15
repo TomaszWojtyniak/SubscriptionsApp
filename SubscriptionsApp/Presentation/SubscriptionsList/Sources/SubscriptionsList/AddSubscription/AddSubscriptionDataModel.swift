@@ -61,8 +61,18 @@ class AddSubscriptionDataModel {
             if let cloudSubscription, let monthlyCost = Double(self.monthlyCost) {
                 return Subscription(name: self.name, monthlyCost: monthlyCost, details: cloudSubscription)
             }
-        case .entertainment, .productivity, .fitness:
-            return nil
+        case .entertainment:
+            if let entertainmentSubscription, let monthlyCost = Double(self.monthlyCost) {
+                return Subscription(name: self.name, monthlyCost: monthlyCost, details: entertainmentSubscription)
+            }
+        case .fitness:
+            if let fitnessSubscription, let monthlyCost = Double(self.monthlyCost) {
+                return Subscription(name: self.name, monthlyCost: monthlyCost, details: fitnessSubscription)
+            }
+        case .productivity:
+            if let productivitySubscription, let monthlyCost = Double(self.monthlyCost) {
+                return Subscription(name: self.name, monthlyCost: monthlyCost, details: productivitySubscription)
+            }
         }
         
         return nil

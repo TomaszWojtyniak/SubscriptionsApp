@@ -11,8 +11,8 @@ import Models
 
 struct AddFitnessSubscriptionView: View {
     
-    @State var fitnessType: FitnessType = .basicAccess
-    @State var gymName: String = ""
+    @State private var fitnessType: FitnessType = .basicAccess
+    @State private var gymName: String = ""
     
     @Binding var fitnessSubscription: FitnessSubscription?
     

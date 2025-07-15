@@ -130,6 +130,39 @@
         }
       }
     },
+    "advanced.security.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Advanced security"
+          }
+        }
+      }
+    },
+    "cloud.storage.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cloud storage"
+          }
+        }
+      }
+    },
+    "entertainment.subscription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entertainment subscription"
+          }
+        }
+      }
+    },
     "error.title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -163,12 +196,13 @@
         }
       }
     },
-    "Hello, World!" : {
+    "max.streams" : {
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "FWEJBFWE"
+            "value" : "Max streams"
           }
         }
       }
@@ -179,6 +213,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
+          }
+        }
+      }
+    },
+    "productivity.subscription.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Productivity subscription"
+          }
+        }
+      }
+    },
+    "streaming.plan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Streaming plan"
           }
         }
       }
@@ -255,6 +311,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Subscriptions"
+          }
+        }
+      }
+    },
+    "user.licenses.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User licenses"
           }
         }
       }

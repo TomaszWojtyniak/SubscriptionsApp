@@ -48,9 +48,9 @@ struct AddSubscriptionView: View {
             case .cloud:
                 AddCloudSubscriptionView(cloudSubscription: $dataModel.cloudSubscription)
             case .entertainment:
-                AddEntertainmentSubscriptionView()
+                AddEntertainmentSubscriptionView(entertainmentSubscription: $dataModel.entertainmentSubscription)
             case .productivity:
-                AddProductivitySubscriptionView()
+                AddProductivitySubscriptionView(productivitySubscription: $dataModel.productivitySubscription)
             case .fitness:
                 AddFitnessSubscriptionView(fitnessSubscription: $dataModel.fitnessSubscription)
             }
