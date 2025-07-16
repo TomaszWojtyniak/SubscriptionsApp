@@ -23,6 +23,7 @@ class SubscriptionsDataModel {
     var selectedSubscription: Subscription?
     var isShowingAddSubscriptionSheet: Bool = false
     var isShowingErrorAlert: Bool = false
+    var isLoading: Bool = false
     
     init(getSubscriptionsUseCase: GetSubscriptionsUseCaseProtocol = GetSubscriptionsUseCase(),
         setSubscriptionsUseCase: SetSubscriptionsUseCaseProtocol = SetSubscriptionsUseCase()) {
@@ -46,6 +47,9 @@ class SubscriptionsDataModel {
     
     func removeSubscription(at indexSet: IndexSet) {
         Task {
+            isLoading = true
+            defer { isLoading = false }
+            
             if let index = indexSet.first {
                 let subscriptionId = self.subscriptions[index].id
                 do {
@@ -60,6 +64,9 @@ class SubscriptionsDataModel {
     
     func addSubscription(_ subscription: Subscription) {
         Task {
+            isLoading = true
+            defer { isLoading = false }
+            
             do {
                 self.subscriptions = try await self.setSubscriptionsUseCase.addSubscription(subscription: subscription)
             } catch let error {
@@ -85,6 +92,9 @@ class SubscriptionsDataModel {
     
     func updateSubscription(_ updatedSubscription: Subscription) {
         Task {
+            isLoading = true
+            defer { isLoading = false }
+            
             do {
                 self.subscriptions = try await setSubscriptionsUseCase.updateSubscription(subscription: updatedSubscription)
             } catch {

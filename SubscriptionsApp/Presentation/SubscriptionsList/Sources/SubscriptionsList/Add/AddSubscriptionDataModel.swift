@@ -64,8 +64,12 @@ class AddSubscriptionDataModel {
         switch type {
         case .cloud:
             return cloudSubscription != nil
-        case .entertainment, .productivity, .fitness:
-            return true
+        case .entertainment:
+            return entertainmentSubscription != nil
+        case .productivity:
+            return productivitySubscription != nil
+        case .fitness:
+            return fitnessSubscription != nil
         }
     }
     

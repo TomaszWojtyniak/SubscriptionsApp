@@ -65,6 +65,9 @@ struct AddCloudSubscriptionView: View {
                 updateSubscriptionModel()
             }
         }
+        .onAppear {
+            updateSubscriptionModel()
+        }
     }
     
     private func updateSubscriptionModel() {

@@ -18,39 +18,52 @@ struct SubscriptionsView: View {
             if self.dataModel.subscriptions.isEmpty {
                 ContentUnavailableView("subscription.view.no.data.title".localized(.module), systemImage: "exclamationmark.shield.fill")
             } else {
-                List {
-                    ForEach(self.dataModel.subscriptions) { subscription in
-                        SubscriptionCellView(subscription: subscription)
-                            .onTapGesture {
-                                self.dataModel.selectedSubscription = subscription
+                ZStack {
+                    List {
+                        ForEach(self.dataModel.subscriptions) { subscription in
+                            SubscriptionCellView(subscription: subscription)
+                                .onTapGesture {
+                                    self.dataModel.selectedSubscription = subscription
+                                }
+                        }
+                        .onDelete { index in
+                            dataModel.removeSubscription(at: index)
+                        }
+                    }
+                    .refreshable {
+                        await self.dataModel.getSubscriptionsData()
+                    }
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button {
+                                self.dataModel.isShowingAddSubscriptionSheet = true
+                            } label: {
+                                Image(systemName: "plus.circle.fill")
+                                    .foregroundColor(.blue)
                             }
+                        }
                     }
-                    .onDelete { index in
-                        dataModel.removeSubscription(at: index)
-                    }
-                }
-                .refreshable {
-                    await self.dataModel.getSubscriptionsData()
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            self.dataModel.isShowingAddSubscriptionSheet = true
-                        } label: {
-                            Image(systemName: "plus.circle.fill")
-                                .foregroundColor(.blue)
+                    .navigationTitle("subscriptions.navigation.title".localized(.module))
+                    .navigationBarTitleDisplayMode(.automatic)
+                    .sheet(isPresented: $dataModel.isShowingAddSubscriptionSheet, content: {
+                        NavigationStack {
+                            AddSubscriptionView { newSubscription in
+                                self.dataModel.addSubscription(newSubscription)
+                            }
+                        }
+                    })
+                    
+                    if dataModel.isLoading {
+                        HStack {
+                            Spacer()
+                            ProgressView()
+                                .progressViewStyle(.circular)
+                                .scaleEffect(1.5)
+                                .padding()
+                            Spacer()
                         }
                     }
                 }
-                .navigationTitle("subscriptions.navigation.title".localized(.module))
-                .navigationBarTitleDisplayMode(.automatic)
-                .sheet(isPresented: $dataModel.isShowingAddSubscriptionSheet, content: {
-                    NavigationStack {
-                        AddSubscriptionView { newSubscription in
-                            self.dataModel.addSubscription(newSubscription)
-                        }
-                    }
-                })
             }
         }
         .navigationDestination(item: $dataModel.selectedSubscription) { subscription in

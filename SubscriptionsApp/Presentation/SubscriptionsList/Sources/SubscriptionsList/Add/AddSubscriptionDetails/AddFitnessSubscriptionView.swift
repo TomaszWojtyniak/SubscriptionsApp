@@ -38,6 +38,9 @@ struct AddFitnessSubscriptionView: View {
                 updateSubscriptionModel()
             }
         }
+        .onAppear {
+            updateSubscriptionModel()
+        }
     }
     
     private func updateSubscriptionModel() {

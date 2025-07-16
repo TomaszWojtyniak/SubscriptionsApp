@@ -46,6 +46,9 @@ struct AddEntertainmentSubscriptionView: View {
                 updateSubscriptionModel()
             }
         }
+        .onAppear {
+            updateSubscriptionModel()
+        }
     }
     
     private func updateSubscriptionModel() {
