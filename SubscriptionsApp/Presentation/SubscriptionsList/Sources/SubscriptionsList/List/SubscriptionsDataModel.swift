@@ -28,6 +28,11 @@ class SubscriptionsDataModel {
         setSubscriptionsUseCase: SetSubscriptionsUseCaseProtocol = SetSubscriptionsUseCase()) {
         self.getSubscriptionsUseCase = getSubscriptionsUseCase
         self.setSubscriptionsUseCase = setSubscriptionsUseCase
+        
+        Task {
+            await self.addLocaleData()
+            await self.getSubscriptionsData()
+        }
     }
     
     func getSubscriptionsData() async {

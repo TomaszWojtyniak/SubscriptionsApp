@@ -17,8 +17,8 @@ public struct Subscription: Identifiable, Hashable, Sendable, Codable {
         return _details.wrappedValue
     }
     
-    public init(name: String, monthlyCost: Double, details: any SubscriptionDetails) {
-        self.id = UUID()
+    public init(id: UUID = UUID(), name: String, monthlyCost: Double, details: any SubscriptionDetails) {
+        self.id = id
         self.name = name
         self.monthlyCost = monthlyCost
         self._details = AnySubscriptionDetails(details)

@@ -23,8 +23,26 @@ class AddSubscriptionDataModel {
     var entertainmentSubscription: EntertainmentSubscription?
     var productivitySubscription: ProductivitySubscription?
     
+    private(set) var isEditing: Bool = false
+    private var originalId: UUID?
+    
+    //Init for adding subscription
     init() {
         
+    }
+    
+    //Init for editing subscription
+    init(subscription: Subscription) {
+        self.name = subscription.name
+        self.monthlyCost = String(subscription.monthlyCost)
+        self.type = subscription.details.type
+        self.isEditing = true
+        self.originalId = subscription.id
+
+        self.cloudSubscription = subscription.getCloudDetails()
+        self.entertainmentSubscription = subscription.getEntertainmentDetails()
+        self.fitnessSubscription = subscription.getFitnessDetails()
+        self.productivitySubscription = subscription.getProductivityDetails()
     }
     
     func filterMonthlyCostTextField(newValue: String) {
@@ -56,25 +74,27 @@ class AddSubscriptionDataModel {
     }
     
     func getSubscriptionModel() -> Subscription? {
+        guard let monthlyCost = Double(self.monthlyCost) else { return nil }
+
         switch self.type {
         case .cloud:
-            if let cloudSubscription, let monthlyCost = Double(self.monthlyCost) {
-                return Subscription(name: self.name, monthlyCost: monthlyCost, details: cloudSubscription)
+            if let cloudSubscription {
+                return Subscription(id: originalId ?? UUID(), name: name, monthlyCost: monthlyCost, details: cloudSubscription)
             }
         case .entertainment:
-            if let entertainmentSubscription, let monthlyCost = Double(self.monthlyCost) {
-                return Subscription(name: self.name, monthlyCost: monthlyCost, details: entertainmentSubscription)
+            if let entertainmentSubscription {
+                return Subscription(id: originalId ?? UUID(), name: name, monthlyCost: monthlyCost, details: entertainmentSubscription)
             }
         case .fitness:
-            if let fitnessSubscription, let monthlyCost = Double(self.monthlyCost) {
-                return Subscription(name: self.name, monthlyCost: monthlyCost, details: fitnessSubscription)
+            if let fitnessSubscription {
+                return Subscription(id: originalId ?? UUID(), name: name, monthlyCost: monthlyCost, details: fitnessSubscription)
             }
         case .productivity:
-            if let productivitySubscription, let monthlyCost = Double(self.monthlyCost) {
-                return Subscription(name: self.name, monthlyCost: monthlyCost, details: productivitySubscription)
+            if let productivitySubscription {
+                return Subscription(id: originalId ?? UUID(), name: name, monthlyCost: monthlyCost, details: productivitySubscription)
             }
         }
-        
+
         return nil
     }
 }

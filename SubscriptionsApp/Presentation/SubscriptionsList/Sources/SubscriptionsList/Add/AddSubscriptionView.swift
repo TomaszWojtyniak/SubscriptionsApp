@@ -11,10 +11,18 @@ import SharedUtilities
 
 struct AddSubscriptionView: View {
     
-    @State private var dataModel = AddSubscriptionDataModel()
-        
+    @State private var dataModel: AddSubscriptionDataModel
     let onSave: (Subscription) -> Void
     @Environment(\.dismiss) private var dismiss
+
+    init(subscriptionToEdit: Subscription? = nil, onSave: @escaping (Subscription) -> Void) {
+        if let sub = subscriptionToEdit {
+            _dataModel = State(initialValue: AddSubscriptionDataModel(subscription: sub))
+        } else {
+            _dataModel = State(initialValue: AddSubscriptionDataModel())
+        }
+        self.onSave = onSave
+    }
     
     var body: some View {
         Form {
@@ -55,7 +63,7 @@ struct AddSubscriptionView: View {
                 AddFitnessSubscriptionView(fitnessSubscription: $dataModel.fitnessSubscription)
             }
         }
-        .navigationTitle("add.subscription.navigation.title".localized(.module))
+        .navigationTitle(dataModel.isEditing ? "edit.subscription.navigation.title".localized(.module) : "add.subscription.navigation.title".localized(.module))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -65,7 +73,7 @@ struct AddSubscriptionView: View {
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("add.subscription.add.button.title".localized(.module)) {
+                Button(dataModel.isEditing ? "add.subscription.save.button.title".localized(.module) : "add.subscription.add.button.title".localized(.module)) {
                     guard self.dataModel.isFormValid else { return }
                     
                     if let subscription = self.dataModel.getSubscriptionModel() {

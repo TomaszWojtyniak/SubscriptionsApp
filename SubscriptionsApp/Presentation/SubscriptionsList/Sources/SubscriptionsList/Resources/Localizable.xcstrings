@@ -61,6 +61,7 @@
       }
     },
     "add.subscription.add.button.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -111,11 +112,23 @@
       }
     },
     "add.subscription.navigation.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add subscriptions"
+            "value" : "Add subscription"
+          }
+        }
+      }
+    },
+    "add.subscription.save.button.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
           }
         }
       }
@@ -148,6 +161,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cloud storage"
+          }
+        }
+      }
+    },
+    "edit.subscription.navigation.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit subscription"
           }
         }
       }

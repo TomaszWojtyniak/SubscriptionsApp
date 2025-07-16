@@ -16,11 +16,14 @@ struct SubscriptionsView: View {
     var body: some View {
         NavigationStack {
             if self.dataModel.subscriptions.isEmpty {
-                ContentUnavailableView("subscription.view.no.data.title", systemImage: "exclamationmark.shield.fill")
+                ContentUnavailableView("subscription.view.no.data.title".localized(.module), systemImage: "exclamationmark.shield.fill")
             } else {
                 List {
                     ForEach(self.dataModel.subscriptions) { subscription in
                         SubscriptionCellView(subscription: subscription)
+                            .onTapGesture {
+                                self.dataModel.selectedSubscription = subscription
+                            }
                     }
                     .onDelete { index in
                         dataModel.removeSubscription(at: index)
@@ -51,15 +54,11 @@ struct SubscriptionsView: View {
             }
         }
         .navigationDestination(item: $dataModel.selectedSubscription) { subscription in
-
+            SubscriptionDetailsViewControllerRepresentable(subscription: subscription)
         }
         .alert("error.title".localized(.module), isPresented: $dataModel.isShowingErrorAlert, actions: {
             Button("OK", role: .cancel) { }
         })
-        .task {
-            await self.dataModel.addLocaleData()
-            await self.dataModel.getSubscriptionsData()
-        }
     }
 }
 
