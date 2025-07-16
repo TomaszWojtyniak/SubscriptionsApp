@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AnySubscriptionDetails: Codable, Sendable {
+public struct AnySubscriptionDetails: Codable, Sendable, Equatable {
     private let _details: any SubscriptionDetails
     
     public init(_ details: any SubscriptionDetails) {
@@ -20,6 +20,21 @@ public struct AnySubscriptionDetails: Codable, Sendable {
     
     private enum CodingKeys: String, CodingKey {
         case type
+    }
+    
+    public static func == (lhs: AnySubscriptionDetails, rhs: AnySubscriptionDetails) -> Bool {
+        switch (lhs._details, rhs._details) {
+        case let (lhs as EntertainmentSubscription, rhs as EntertainmentSubscription):
+            return lhs == rhs
+        case let (lhs as ProductivitySubscription, rhs as ProductivitySubscription):
+            return lhs == rhs
+        case let (lhs as FitnessSubscription, rhs as FitnessSubscription):
+            return lhs == rhs
+        case let (lhs as CloudStorageSubscription, rhs as CloudStorageSubscription):
+            return lhs == rhs
+        default:
+            return false
+        }
     }
     
     public init(from decoder: Decoder) throws {

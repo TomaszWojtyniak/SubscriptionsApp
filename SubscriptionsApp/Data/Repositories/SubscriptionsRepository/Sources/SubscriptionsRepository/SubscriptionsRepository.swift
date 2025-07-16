@@ -15,11 +15,14 @@ public protocol SubscriptionsRepositoryProtocol: Sendable {
     func saveLocalData(data: Data) async throws -> [Subscription]
     func addSubscriptionElement(_ subscription: Subscription) async throws -> [Subscription]
     func deleteSubscriptionElement(withId id: UUID) async throws -> [Subscription]
+    func updateSubscriptionElement(_ subscription: Subscription) async throws -> [Subscription]
 }
 
 enum SubscriptionRepositoryError: Error {
     case wrongUrl
     case genericError
+    case noLocalData
+    case subscriptionNotFound
 }
 
 private let logger = Logger(subsystem: "SubscriptionsApp", category: "SubscriptionsRepository")
@@ -89,6 +92,24 @@ public actor SubscriptionsRepository: SubscriptionsRepositoryProtocol {
         currentSubscriptions.removeAll { $0.id == id }
         self.subscriptions = currentSubscriptions
         return currentSubscriptions
+    }
+    
+    public func updateSubscriptionElement(_ subscription: Subscription) async throws -> [Subscription] {
+        //Simulate updating subscriptions list to backend
+        guard let url = URL(string: "https://api.example.com/subscriptions") else { throw SubscriptionRepositoryError.wrongUrl }
+        _ = try await self.apiClient.post(url, body: Data())
+        
+        guard var existingSubscriptions = self.subscriptions else {
+            throw SubscriptionRepositoryError.noLocalData
+        }
+
+        guard let index = existingSubscriptions.firstIndex(where: { $0.id == subscription.id }) else {
+            throw SubscriptionRepositoryError.subscriptionNotFound
+        }
+
+        existingSubscriptions[index] = subscription
+        self.subscriptions = existingSubscriptions
+        return existingSubscriptions
     }
 }
 

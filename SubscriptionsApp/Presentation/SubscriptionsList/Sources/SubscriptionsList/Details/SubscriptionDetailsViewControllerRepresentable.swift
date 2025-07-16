@@ -10,10 +10,11 @@ import Models
 
 struct SubscriptionDetailsViewControllerRepresentable: UIViewControllerRepresentable {
     let subscription: Subscription
+    let onUpdate: (Subscription) -> Void
     
     func makeUIViewController(context: Context) -> SubscriptionDetailsViewController {
         let viewController = SubscriptionDetailsViewController(subscription: subscription)
-        
+        viewController.onUpdate = onUpdate
         return viewController
     }
     

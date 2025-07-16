@@ -15,6 +15,8 @@ class SubscriptionDetailsViewController: UIViewController {
     let subscription: Subscription
     let viewModel: SubscriptionDetailsViewModelProtocol
     
+    var onUpdate: ((Subscription) -> Void)?
+    
     init(subscription: Subscription, viewModel: SubscriptionDetailsViewModelProtocol = SubscriptionDetailsViewModel()) {
         self.subscription = subscription
         self.viewModel = viewModel
@@ -98,7 +100,10 @@ class SubscriptionDetailsViewController: UIViewController {
     @objc private func editButtonTapped() {
         let editView = NavigationStack {
             AddSubscriptionView(subscriptionToEdit: subscription) { updatedSubscription in
-                print("Updated subscription: \(updatedSubscription)")
+                self.onUpdate?(updatedSubscription)
+                self.dismiss(animated: true) {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         }
 

@@ -36,7 +36,10 @@ public struct Subscription: Identifiable, Hashable, Sendable, Codable {
     }
     
     public static func == (lhs: Subscription, rhs: Subscription) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.id == rhs.id &&
+        lhs.name == rhs.name &&
+        lhs.monthlyCost == rhs.monthlyCost &&
+        lhs._details == rhs._details
     }
     
     private enum CodingKeys: String, CodingKey {

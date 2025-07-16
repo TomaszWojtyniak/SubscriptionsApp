@@ -54,7 +54,9 @@ struct SubscriptionsView: View {
             }
         }
         .navigationDestination(item: $dataModel.selectedSubscription) { subscription in
-            SubscriptionDetailsViewControllerRepresentable(subscription: subscription)
+            SubscriptionDetailsViewControllerRepresentable(subscription: subscription) { updatedSubscription in
+                self.dataModel.updateSubscription(updatedSubscription)
+            }
         }
         .alert("error.title".localized(.module), isPresented: $dataModel.isShowingErrorAlert, actions: {
             Button("OK", role: .cancel) { }

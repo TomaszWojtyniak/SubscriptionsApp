@@ -82,4 +82,15 @@ class SubscriptionsDataModel {
             isShowingErrorAlert = true
         }
     }
+    
+    func updateSubscription(_ updatedSubscription: Subscription) {
+        Task {
+            do {
+                self.subscriptions = try await setSubscriptionsUseCase.updateSubscription(subscription: updatedSubscription)
+            } catch {
+                logger.error("Error updating subscription: \(error)")
+                isShowingErrorAlert = true
+            }
+        }
+    }
 }
