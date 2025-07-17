@@ -17,8 +17,8 @@ public struct Subscription: Identifiable, Hashable, Sendable, Codable {
         return _details.wrappedValue
     }
     
-    public init(name: String, monthlyCost: Double, details: any SubscriptionDetails) {
-        self.id = UUID()
+    public init(id: UUID = UUID(), name: String, monthlyCost: Double, details: any SubscriptionDetails) {
+        self.id = id
         self.name = name
         self.monthlyCost = monthlyCost
         self._details = AnySubscriptionDetails(details)
@@ -36,7 +36,10 @@ public struct Subscription: Identifiable, Hashable, Sendable, Codable {
     }
     
     public static func == (lhs: Subscription, rhs: Subscription) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.id == rhs.id &&
+        lhs.name == rhs.name &&
+        lhs.monthlyCost == rhs.monthlyCost &&
+        lhs._details == rhs._details
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -69,7 +72,7 @@ public extension Subscription {
         return getSubscriptionDetails()
     }
     
-    func getProductivityDetails() -> ProductivitySubscriptions? {
+    func getProductivityDetails() -> ProductivitySubscription? {
         return getSubscriptionDetails()
     }
     

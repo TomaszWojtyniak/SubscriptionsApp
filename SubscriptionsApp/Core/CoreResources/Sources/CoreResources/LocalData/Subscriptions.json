@@ -5,7 +5,7 @@
       "name": "Netflix Premium",
       "monthlyCost": 15.99,
       "details": {
-        "type": "entertainment",
+        "type": "Entertainment",
         "streamingPlan": "premium",
         "maxStreams": 4,
         "has4k": true
@@ -16,7 +16,7 @@
       "name": "Microsoft 365 Business",
       "monthlyCost": 22.00,
       "details": {
-        "type": "productivity",
+        "type": "Productivity",
         "userLicenses": 5,
         "hasCloudStorage": true,
         "hasAdvancedSecurity": true
@@ -27,7 +27,7 @@
       "name": "FitZone Premium",
       "monthlyCost": 89.99,
       "details": {
-        "type": "fitness",
+        "type": "Fitness",
         "fitnessType": "fullAccess",
         "gymName": "FitZone Premium"
       }
@@ -37,7 +37,7 @@
       "name": "Google Drive Pro",
       "monthlyCost": 9.99,
       "details": {
-        "type": "cloud",
+        "type": "Cloud",
         "provider": "Google",
         "storageCapacity": 2000,
         "syncDevices": 10,
@@ -49,7 +49,7 @@
       "name": "Disney+ Premium",
       "monthlyCost": 13.99,
       "details": {
-        "type": "entertainment",
+        "type": "Entertainment",
         "streamingPlan": "premium",
         "maxStreams": 4,
         "has4k": true
@@ -60,7 +60,7 @@
       "name": "Adobe Creative Cloud",
       "monthlyCost": 52.99,
       "details": {
-        "type": "productivity",
+        "type": "Productivity",
         "userLicenses": 1,
         "hasCloudStorage": true,
         "hasAdvancedSecurity": false
@@ -71,7 +71,7 @@
       "name": "Gold's Gym Basic",
       "monthlyCost": 29.99,
       "details": {
-        "type": "fitness",
+        "type": "Fitness",
         "fitnessType": "basicAccess",
         "gymName": "Gold's Gym"
       }
@@ -81,7 +81,7 @@
       "name": "Dropbox Business",
       "monthlyCost": 15.00,
       "details": {
-        "type": "cloud",
+        "type": "Cloud",
         "provider": "Dropbox",
         "storageCapacity": 5000,
         "syncDevices": 3,

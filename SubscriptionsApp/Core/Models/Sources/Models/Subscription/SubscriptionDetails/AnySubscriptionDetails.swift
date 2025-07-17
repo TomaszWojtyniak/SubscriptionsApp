@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AnySubscriptionDetails: Codable, Sendable {
+public struct AnySubscriptionDetails: Codable, Sendable, Equatable {
     private let _details: any SubscriptionDetails
     
     public init(_ details: any SubscriptionDetails) {
@@ -22,6 +22,21 @@ public struct AnySubscriptionDetails: Codable, Sendable {
         case type
     }
     
+    public static func == (lhs: AnySubscriptionDetails, rhs: AnySubscriptionDetails) -> Bool {
+        switch (lhs._details, rhs._details) {
+        case let (lhs as EntertainmentSubscription, rhs as EntertainmentSubscription):
+            return lhs == rhs
+        case let (lhs as ProductivitySubscription, rhs as ProductivitySubscription):
+            return lhs == rhs
+        case let (lhs as FitnessSubscription, rhs as FitnessSubscription):
+            return lhs == rhs
+        case let (lhs as CloudStorageSubscription, rhs as CloudStorageSubscription):
+            return lhs == rhs
+        default:
+            return false
+        }
+    }
+    
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let type = try container.decode(SubscriptionType.self, forKey: .type)
@@ -30,7 +45,7 @@ public struct AnySubscriptionDetails: Codable, Sendable {
         case .entertainment:
             self._details = try EntertainmentSubscription(from: decoder)
         case .productivity:
-            self._details = try ProductivitySubscriptions(from: decoder)
+            self._details = try ProductivitySubscription(from: decoder)
         case .fitness:
             self._details = try FitnessSubscription(from: decoder)
         case .cloud:
@@ -42,7 +57,7 @@ public struct AnySubscriptionDetails: Codable, Sendable {
         switch _details {
         case let entertainment as EntertainmentSubscription:
             try entertainment.encode(to: encoder)
-        case let productivity as ProductivitySubscriptions:
+        case let productivity as ProductivitySubscription:
             try productivity.encode(to: encoder)
         case let fitness as FitnessSubscription:
             try fitness.encode(to: encoder)

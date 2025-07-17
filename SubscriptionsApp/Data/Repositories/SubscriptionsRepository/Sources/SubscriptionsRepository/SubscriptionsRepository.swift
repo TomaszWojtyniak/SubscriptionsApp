@@ -13,11 +13,16 @@ import OSLog
 public protocol SubscriptionsRepositoryProtocol: Sendable {
     func getSubscriptionsData() async throws -> [Subscription]
     func saveLocalData(data: Data) async throws -> [Subscription]
+    func addSubscriptionElement(_ subscription: Subscription) async throws -> [Subscription]
+    func deleteSubscriptionElement(withId id: UUID) async throws -> [Subscription]
+    func updateSubscriptionElement(_ subscription: Subscription) async throws -> [Subscription]
 }
 
 enum SubscriptionRepositoryError: Error {
     case wrongUrl
     case genericError
+    case noLocalData
+    case subscriptionNotFound
 }
 
 private let logger = Logger(subsystem: "SubscriptionsApp", category: "SubscriptionsRepository")
@@ -66,6 +71,45 @@ public actor SubscriptionsRepository: SubscriptionsRepositoryProtocol {
         return combined.compactMap { subscription in
             seenIds.insert(subscription.id.uuidString).inserted ? subscription : nil
         }
+    }
+    
+    public func addSubscriptionElement(_ subscription: Subscription) async throws -> [Subscription] {
+        //Simulate updating subscriptions list to backend
+        guard let url = URL(string: "https://api.example.com/subscriptions") else { throw SubscriptionRepositoryError.wrongUrl }
+        _ = try await self.apiClient.post(url, body: Data())
+        self.subscriptions = self.combineSubscriptions(subscriptions, [subscription])
+        return self.subscriptions ?? []
+    }
+    
+    public func deleteSubscriptionElement(withId id: UUID) async throws -> [Subscription] {
+        //Simulate updating subscriptions list to backend
+        guard let url = URL(string: "https://api.example.com/subscriptions") else { throw SubscriptionRepositoryError.wrongUrl }
+        _ = try await self.apiClient.post(url, body: Data())
+        guard var currentSubscriptions = self.subscriptions else {
+            return []
+        }
+        
+        currentSubscriptions.removeAll { $0.id == id }
+        self.subscriptions = currentSubscriptions
+        return currentSubscriptions
+    }
+    
+    public func updateSubscriptionElement(_ subscription: Subscription) async throws -> [Subscription] {
+        //Simulate updating subscriptions list to backend
+        guard let url = URL(string: "https://api.example.com/subscriptions") else { throw SubscriptionRepositoryError.wrongUrl }
+        _ = try await self.apiClient.post(url, body: Data())
+        
+        guard var existingSubscriptions = self.subscriptions else {
+            throw SubscriptionRepositoryError.noLocalData
+        }
+
+        guard let index = existingSubscriptions.firstIndex(where: { $0.id == subscription.id }) else {
+            throw SubscriptionRepositoryError.subscriptionNotFound
+        }
+
+        existingSubscriptions[index] = subscription
+        self.subscriptions = existingSubscriptions
+        return existingSubscriptions
     }
 }
 

@@ -4,31 +4,29 @@
 import PackageDescription
 
 let package = Package(
-    name: "Summary",
+    name: "SummaryUseCases",
     defaultLocalization: "en",
     platforms: [.iOS(.v18)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Summary",
-            targets: ["Summary"]),
+            name: "SummaryUseCases",
+            targets: ["SummaryUseCases"]),
     ],
     dependencies: [
-        .package(path: "../../Domain/SummaryUseCases"),
-        .package(path: "../../Core/SharedUtilities"),
+        .package(path: "../../Data/Repositories/SubscriptionsRepository")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Summary",
+            name: "SummaryUseCases",
             dependencies: [
-                "SummaryUseCases",
-                "SharedUtilities"
+                "SubscriptionsRepository"
             ]),
         .testTarget(
-            name: "SummaryTests",
-            dependencies: ["Summary"]
+            name: "SummaryUseCasesTests",
+            dependencies: ["SummaryUseCases"]
         ),
     ]
 )

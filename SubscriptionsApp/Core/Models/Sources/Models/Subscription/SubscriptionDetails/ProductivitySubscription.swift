@@ -1,5 +1,5 @@
 //
-//  ProductivitySubscriptions.swift
+//  ProductivitySubscription.swift
 //  Models
 //
 //  Created by Tomasz Wojtyniak on 10/07/2025.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ProductivitySubscriptions: SubscriptionDetails {
+public struct ProductivitySubscription: SubscriptionDetails {
     public let type: SubscriptionType
     public let userLicenses: Int
     public let hasCloudStorage: Bool

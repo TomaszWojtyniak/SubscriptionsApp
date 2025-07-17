@@ -19,7 +19,7 @@ public struct FitnessSubscription: SubscriptionDetails {
     }
 }
 
-public enum FitnessType: String, Codable, Sendable {
+public enum FitnessType: String, Codable, Sendable, CaseIterable {
     case fullAccess
     case basicAccess
 }

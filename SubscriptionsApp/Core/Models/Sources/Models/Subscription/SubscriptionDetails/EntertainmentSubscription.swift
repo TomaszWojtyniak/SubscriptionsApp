@@ -21,7 +21,7 @@ public struct EntertainmentSubscription: SubscriptionDetails {
     }
 }
 
-public enum StreamingPlan: String, Codable, Sendable {
+public enum StreamingPlan: String, Codable, Sendable, CaseIterable {
     case basic
     case standard
     case premium
