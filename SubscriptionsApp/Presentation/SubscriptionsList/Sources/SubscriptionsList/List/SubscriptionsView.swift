@@ -27,7 +27,9 @@ struct SubscriptionsView: View {
                                 }
                         }
                         .onDelete { index in
-                            dataModel.removeSubscription(at: index)
+                            Task {
+                                await dataModel.removeSubscription(at: index)
+                            }
                         }
                     }
                     .refreshable {
@@ -48,7 +50,9 @@ struct SubscriptionsView: View {
                     .sheet(isPresented: $dataModel.isShowingAddSubscriptionSheet, content: {
                         NavigationStack {
                             AddSubscriptionView { newSubscription in
-                                self.dataModel.addSubscription(newSubscription)
+                                Task {
+                                    await self.dataModel.addSubscription(newSubscription)
+                                }
                             }
                         }
                     })
@@ -68,12 +72,19 @@ struct SubscriptionsView: View {
         }
         .navigationDestination(item: $dataModel.selectedSubscription) { subscription in
             SubscriptionDetailsViewControllerRepresentable(subscription: subscription) { updatedSubscription in
-                self.dataModel.updateSubscription(updatedSubscription)
+                Task {
+                    await self.dataModel.updateSubscription(updatedSubscription)
+                }
             }
         }
         .alert("error.title".localized(.module), isPresented: $dataModel.isShowingErrorAlert, actions: {
             Button("OK", role: .cancel) { }
         })
+        .onFirstAppear {
+            Task {
+                await self.dataModel.load()
+            }
+        }
     }
 }
 

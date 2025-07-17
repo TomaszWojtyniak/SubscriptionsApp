@@ -29,11 +29,11 @@ class SubscriptionsDataModel {
         setSubscriptionsUseCase: SetSubscriptionsUseCaseProtocol = SetSubscriptionsUseCase()) {
         self.getSubscriptionsUseCase = getSubscriptionsUseCase
         self.setSubscriptionsUseCase = setSubscriptionsUseCase
-        
-        Task {
-            await self.addLocaleData()
-            await self.getSubscriptionsData()
-        }
+    }
+    
+    func load() async {
+        await self.addLocaleData()
+        await self.getSubscriptionsData()
     }
     
     func getSubscriptionsData() async {
@@ -45,34 +45,33 @@ class SubscriptionsDataModel {
         }
     }
     
-    func removeSubscription(at indexSet: IndexSet) {
-        Task {
-            isLoading = true
-            defer { isLoading = false }
-            
-            if let index = indexSet.first {
-                let subscriptionId = self.subscriptions[index].id
-                do {
-                    self.subscriptions = try await self.setSubscriptionsUseCase.deleteSubscription(id: subscriptionId)
-                } catch let error {
-                    logger.error("Error deleting subscription element: \(error)")
-                    isShowingErrorAlert = true
-                }
+    func removeSubscription(at indexSet: IndexSet) async {
+        isLoading = true
+        defer { isLoading = false }
+        
+        if let index = indexSet.first, subscriptions.indices.contains(index) {
+            let subscriptionId = self.subscriptions[index].id
+            do {
+                self.subscriptions = try await self.setSubscriptionsUseCase.deleteSubscription(id: subscriptionId)
+            } catch {
+                logger.error("Error deleting subscription element: \(error.localizedDescription)")
+                isShowingErrorAlert = true
             }
+        } else {
+            logger.warning("Attempted to delete subscription at invalid index: \(String(describing: indexSet.first))")
         }
     }
     
-    func addSubscription(_ subscription: Subscription) {
-        Task {
-            isLoading = true
-            defer { isLoading = false }
-            
-            do {
-                self.subscriptions = try await self.setSubscriptionsUseCase.addSubscription(subscription: subscription)
-            } catch let error {
-                logger.error("Error adding subscription element: \(error)")
-                isShowingErrorAlert = true
-            }
+    func addSubscription(_ subscription: Subscription) async {
+        isLoading = true
+        defer { self.isLoading = false }
+        
+        do {
+            self.subscriptions = try await self.setSubscriptionsUseCase.addSubscription(subscription: subscription)
+            self.isLoading = false
+        } catch let error {
+            logger.error("Error adding subscription element: \(error)")
+            isShowingErrorAlert = true
         }
     }
     
@@ -90,17 +89,15 @@ class SubscriptionsDataModel {
         }
     }
     
-    func updateSubscription(_ updatedSubscription: Subscription) {
-        Task {
-            isLoading = true
-            defer { isLoading = false }
-            
-            do {
-                self.subscriptions = try await setSubscriptionsUseCase.updateSubscription(subscription: updatedSubscription)
-            } catch {
-                logger.error("Error updating subscription: \(error)")
-                isShowingErrorAlert = true
-            }
+    func updateSubscription(_ updatedSubscription: Subscription) async {
+        isLoading = true
+        defer { isLoading = false }
+        
+        do {
+            self.subscriptions = try await setSubscriptionsUseCase.updateSubscription(subscription: updatedSubscription)
+        } catch {
+            logger.error("Error updating subscription: \(error)")
+            isShowingErrorAlert = true
         }
     }
 }

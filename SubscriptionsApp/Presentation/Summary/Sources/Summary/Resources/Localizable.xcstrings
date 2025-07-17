@@ -32,7 +32,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No subscriptions data"
+            "value" : "Loading data"
           }
         }
       }

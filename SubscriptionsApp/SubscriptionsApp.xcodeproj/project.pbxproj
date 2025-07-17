@@ -31,6 +31,7 @@
 		8B8793F02E1EAE5700A02BF6 /* SubscriptionsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubscriptionsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B8793FD2E1EAE5900A02BF6 /* SubscriptionsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubscriptionsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B8794072E1EAE5900A02BF6 /* SubscriptionsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubscriptionsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BB742062E292CF9006C77EB /* SubscriptionsApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SubscriptionsApp.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -168,6 +169,7 @@
 		8B8793E72E1EAE5700A02BF6 = {
 			isa = PBXGroup;
 			children = (
+				8BB742062E292CF9006C77EB /* SubscriptionsApp.xctestplan */,
 				8B87947D2E1EED8D00A02BF6 /* App */,
 				8B87948A2E1EEDAE00A02BF6 /* Core */,
 				8B87948B2E1EEDB500A02BF6 /* Data */,

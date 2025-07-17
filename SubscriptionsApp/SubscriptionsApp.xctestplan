@@ -1,0 +1,92 @@
+{
+  "configurations" : [
+    {
+      "id" : "75A401D7-85C4-4DC7-B01A-E307258A5292",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:SubscriptionsApp.xcodeproj",
+      "identifier" : "8B8793EF2E1EAE5700A02BF6",
+      "name" : "SubscriptionsApp"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Presentation\/SubscriptionsList",
+        "identifier" : "SubscriptionsListTests",
+        "name" : "SubscriptionsListTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Core\/Models",
+        "identifier" : "ModelsTests",
+        "name" : "ModelsTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Presentation\/TabBar",
+        "identifier" : "TabBarTests",
+        "name" : "TabBarTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Data\/Repositories\/SubscriptionsRepository",
+        "identifier" : "SubscriptionsRepositoryTests",
+        "name" : "SubscriptionsRepositoryTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Data\/Services\/ApiClient",
+        "identifier" : "ApiClientTests",
+        "name" : "ApiClientTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Domain\/SummaryUseCases",
+        "identifier" : "SummaryUseCasesTests",
+        "name" : "SummaryUseCasesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Domain\/SubscriptionsUseCases",
+        "identifier" : "SubscriptionsUseCasesTests",
+        "name" : "SubscriptionsUseCasesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Presentation\/Summary",
+        "identifier" : "SummaryTests",
+        "name" : "SummaryTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Core\/CoreResources",
+        "identifier" : "CoreResourcesTests",
+        "name" : "CoreResourcesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Core\/SharedUtilities",
+        "identifier" : "SharedUtilitiesTests",
+        "name" : "SharedUtilitiesTests"
+      }
+    }
+  ],
+  "version" : 1
+}
