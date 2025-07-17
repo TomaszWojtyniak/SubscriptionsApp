@@ -165,6 +165,17 @@
         }
       }
     },
+    "edit.button.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        }
+      }
+    },
     "edit.subscription.navigation.title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -172,6 +183,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Edit subscription"
+          }
+        }
+      }
+    },
+    "ent.max.streams" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max streams"
           }
         }
       }
@@ -198,6 +220,17 @@
         }
       }
     },
+    "fitness.access.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Access"
+          }
+        }
+      }
+    },
     "fitness.subscription.gym.name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -220,6 +253,17 @@
         }
       }
     },
+    "gym.name.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gym"
+          }
+        }
+      }
+    },
     "max.streams" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -231,12 +275,78 @@
         }
       }
     },
+    "monthly.cost.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monthly cost:"
+          }
+        }
+      }
+    },
+    "no" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No"
+          }
+        }
+      }
+    },
+    "no.sub.type.label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details"
+          }
+        }
+      }
+    },
+    "no.sub.type.value" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown subscription type"
+          }
+        }
+      }
+    },
     "OK" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
+          }
+        }
+      }
+    },
+    "productivity.cloud.storage.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cloud Storage"
+          }
+        }
+      }
+    },
+    "productivity.licenses.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Licenses"
           }
         }
       }
@@ -259,6 +369,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Streaming plan"
+          }
+        }
+      }
+    },
+    "subscription.details.navigation.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subscription Details"
+          }
+        }
+      }
+    },
+    "subscription.type.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subscription type: "
           }
         }
       }
@@ -346,6 +478,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "User licenses"
+          }
+        }
+      }
+    },
+    "yes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yes"
           }
         }
       }

@@ -7,6 +7,7 @@
 
 import UIKit
 import Models
+import SharedUtilities
 
 class SubscriptionDetailsView: UIView {
     
@@ -97,7 +98,7 @@ class SubscriptionDetailsView: UIView {
     
     lazy var editButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Edit", for: .normal)
+        button.setTitle("edit.button.title".localized(.module), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)

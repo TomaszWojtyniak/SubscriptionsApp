@@ -34,7 +34,7 @@ class SubscriptionDetailsViewController: UIViewController {
     }
     
     func setupView() {
-        self.navigationController?.title = "Subscription Details"
+        self.navigationController?.title = "subscription.details.navigation.title".localized(.module)
         
         subscriptionDetailsView.nameLabel.text = subscription.name
         subscriptionDetailsView.priceLabel.text = viewModel.formattedPrice(for: subscription)
@@ -42,7 +42,7 @@ class SubscriptionDetailsViewController: UIViewController {
         subscriptionDetailsView.subscriptionTypeImageView.image = UIImage(systemName: subscription.details.type.iconName)
         subscriptionDetailsView.subscriptionTypeImageView.tintColor = UIColor(subscription.details.type.color)
         
-        subscriptionDetailsView.subscriptionTypeLabel.text = "Subscription type: " + subscription.details.type.rawValue
+        subscriptionDetailsView.subscriptionTypeLabel.text = "subscription.type.title".localized(.module) + subscription.details.type.rawValue
         
         displayDetails()
         
@@ -54,26 +54,26 @@ class SubscriptionDetailsViewController: UIViewController {
 
         switch details {
         case let fitness as FitnessSubscription:
-            addDetail(label: "Gym", value: fitness.gymName)
-            addDetail(label: "Access", value: fitness.fitnessType.rawValue)
+            addDetail(label: "gym.name.title".localized(.module), value: fitness.gymName)
+            addDetail(label: "fitness.access.title".localized(.module), value: fitness.fitnessType.rawValue)
 
         case let productivity as ProductivitySubscription:
-            addDetail(label: "Licenses", value: "\(productivity.userLicenses)")
-            addDetail(label: "Cloud Storage", value: productivity.hasCloudStorage ? "Yes" : "No")
-            addDetail(label: "Advanced Security", value: productivity.hasAdvancedSecurity ? "Yes" : "No")
+            addDetail(label: "productivity.licenses.title".localized(.module), value: "\(productivity.userLicenses)")
+            addDetail(label: "productivity.cloud.storage.title".localized(.module), value: productivity.hasCloudStorage ? "yes".localized(.module) : "no".localized(.module))
+            addDetail(label: "advanced.security.title".localized(.module), value: productivity.hasAdvancedSecurity ? "yes".localized(.module) : "no".localized(.module))
             
         case let cloud as CloudStorageSubscription:
-            addDetail(label: "Provider", value: cloud.provider)
-            addDetail(label: "Storage capacity", value: "\(cloud.storageCapacity)")
-            addDetail(label: "Sync devices", value: "\(cloud.storageCapacity)")
-            addDetail(label: "Api access", value: cloud.apiAccess ? "Yes" : "No")
+            addDetail(label: "add.cloud.subscription.provider.title".localized(.module), value: cloud.provider)
+            addDetail(label: "add.cloud.subscription.storage.label".localized(.module), value: "\(cloud.storageCapacity)")
+            addDetail(label: "add.cloud.sync.devices.picker.title".localized(.module), value: "\(cloud.storageCapacity)")
+            addDetail(label: "add.cloud.subscription.api.access.label".localized(.module), value: cloud.apiAccess ? "yes".localized(.module) : "no".localized(.module))
             
         case let entertainment as EntertainmentSubscription:
-            addDetail(label: "Streaming plan", value: "\(entertainment.streamingPlan.rawValue)")
-            addDetail(label: "Max streams", value: "\(entertainment.maxStreams)")
-            addDetail(label: "4K", value: entertainment.has4k ? "Yes" : "No")
+            addDetail(label: "streaming.plan".localized(.module), value: "\(entertainment.streamingPlan.rawValue)")
+            addDetail(label: "ent.max.streams".localized(.module), value: "\(entertainment.maxStreams)")
+            addDetail(label: "4K", value: entertainment.has4k ? "yes".localized(.module) : "no".localized(.module))
         default:
-            addDetail(label: "Details", value: "Unknown subscription type")
+            addDetail(label: "no.sub.type.label".localized(.module), value: "no.sub.type.label".localized(.module))
         }
     }
     

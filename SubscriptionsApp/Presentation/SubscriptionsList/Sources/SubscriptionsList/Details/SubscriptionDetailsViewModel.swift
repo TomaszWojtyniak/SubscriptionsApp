@@ -7,6 +7,7 @@
 
 import UIKit
 import Models
+import SharedUtilities
 
 protocol SubscriptionDetailsViewModelProtocol {
     func formattedPrice(for subscription: Subscription) -> String
@@ -18,6 +19,6 @@ class SubscriptionDetailsViewModel: SubscriptionDetailsViewModelProtocol {
     }
     
     func formattedPrice(for subscription: Subscription) -> String {
-        String(format: "Monthly cost: €%.2f", subscription.monthlyCost)
+        "monthly.cost.title".localized(.module)  + String(format: " €%.2f", subscription.monthlyCost)
     }
 }
