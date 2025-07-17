@@ -38,11 +38,11 @@ struct AddSubscriptionView: View {
                     TextField("", text: $dataModel.monthlyCost)
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.decimalPad)
-                } label: {
-                    Text("add.subscription.monthly.cost.title".localized(.module))
                         .onChange(of: dataModel.monthlyCost) { _ , newValue in
                             self.dataModel.filterMonthlyCostTextField(newValue: newValue)
                         }
+                } label: {
+                    Text("add.subscription.monthly.cost.title".localized(.module))
                 }
                 
                 Picker("add.subscription.type.title".localized(.module), selection: $dataModel.type) {
